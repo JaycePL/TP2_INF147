@@ -2,7 +2,8 @@
     TABLEAU_1D
 
 *****************************************************************************************/
-
+#include <stdlib.h>
+#include <stdio.h>
 
 /****************************************************************************************
 *                               DEFINTION DES CONSTANTES                                *
@@ -19,7 +20,18 @@
 /****************************************************************************************
 *                           DEFINTION DES FONCTIONS PUBLIQUES                            *
 ****************************************************************************************/
+void afficher_tableau1D(int tableau[],int nb_element)
+{
+    for(int index = 0; index < nb_element; index++)
+    {
+        printf("%i  ",tableau[index]);
+    }
+}
 
+//void produit_tableau1D(int tableau[],int nb_element,double valeur)
+//{
+//
+//}
 
 
 

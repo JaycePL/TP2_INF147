@@ -12,3 +12,7 @@
 /****************************************************************************************
 *                       DECLARATION DES FONCTIONS PUBLIQUES                             *
 ****************************************************************************************/
+
+void afficher_tableau1D(int tableau[],int nb_element);
+
+void produit_tableau1D(int tableau[],int nb_element,double valeur);
