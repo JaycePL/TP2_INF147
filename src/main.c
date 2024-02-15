@@ -73,6 +73,16 @@ void tester_tableau1d(void)
     printf("T2 : %0.3lf \n",produit_scalaire_tableau4_et_6);
 
     printf("\n\nFONCTION CREER TABLEAU1D \n");
+    int id_T1 = creer_tableau1d(5);
+    int id_T2 = creer_tableau1d(3);
+    printf("T1 : ");
+    afficher_tableau1D((double *) &id_T1, 5);
+    printf("\nT2 : ");
+    afficher_tableau1D((double *) &id_T2, 3);
+    printf("\n T2 : ");
+
+
+
 
 
 

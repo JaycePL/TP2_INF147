@@ -3,6 +3,8 @@
 
 *****************************************************************************************/
 #include <stdio.h>
+#include <stdlib.h>
+#include <mem.h>
 
 /****************************************************************************************
 *                               DEFINTION DES CONSTANTES                                *
@@ -66,7 +68,13 @@ double produit_scalaire1D(double tableau1[],double tableau2[],int nb_element)
     return produit_scalaire;
 }
 
-//creer_tableau1d
+int* creer_tableau1d(int nb_elements){
+    int* tableau = (int*) malloc(sizeof(double)*nb_elements);
+    for (int i = 0; i < nb_elements; ++i) {
+        tableau[i] = 0;
+    }
+    return tableau;
+}
 
 //double **tableau
 
