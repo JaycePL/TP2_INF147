@@ -33,11 +33,21 @@ void produit_tableau1D(double tableau[],int nb_element,double valeur)
 {
     for(int index = 0; index < nb_element; index++)
     {
-        tableau[index]*= tableau[index] * valeur;
+        tableau[index] *= tableau[index] * valeur;
     }
 }
 
+double produit_scalaire1D(double tableau1[],double tableau2[],int nb_element)
+{
+    double resultat = 0;
 
+    for(int index = 0; index < nb_element; index++)
+    {
+        resultat += tableau1[index] * tableau2[index];
+    }
+
+    return resultat;
+}
 
 /****************************************************************************************
 *                           DEFINTION DES FONCTIONS PRIVEES                            *
