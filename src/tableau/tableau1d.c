@@ -2,9 +2,7 @@
     TABLEAU_1D
 
 *****************************************************************************************/
-#include <stdlib.h>
 #include <stdio.h>
-#include "tableau1d.h"
 
 /****************************************************************************************
 *                               DEFINTION DES CONSTANTES                                *
@@ -25,29 +23,55 @@ void afficher_tableau1D(double tableau[],int nb_element)
 {
     for(int index = 0; index < nb_element; index++)
     {
-        printf("%lf  ",tableau[index]);
+        printf("%0.3lf   ",tableau[index]);
     }
+}
+
+double somme_tableau1D(double tableau[],int nb_element)
+{
+    double somme = 0;
+    int i;
+
+    for(i = 0; i < nb_element; i++)
+    {
+        somme = somme + tableau[i];
+    }
+
+    return somme;
 }
 
 void produit_tableau1D(double tableau[],int nb_element,double valeur)
 {
-    for(int index = 0; index < nb_element; index++)
+    double produit = 0;
+    int i;
+
+    for(i = 0; i < nb_element; i++)
     {
-        tableau[index] *= tableau[index] * valeur;
+        produit = tableau[i] * valeur;
+
+        printf("%0.3lf   ",produit);
     }
 }
 
 double produit_scalaire1D(double tableau1[],double tableau2[],int nb_element)
 {
-    double resultat = 0;
+    double produit_scalaire = 0;
+    int i;
 
-    for(int index = 0; index < nb_element; index++)
+    for (i = 0; i < nb_element; i++)
     {
-        resultat += tableau1[index] * tableau2[index];
+        produit_scalaire = produit_scalaire + tableau1[i] * tableau2[i];
     }
 
-    return resultat;
+    return produit_scalaire;
 }
+
+//creer_tableau1d
+
+//double **tableau
+
+//return null;
+
 
 /****************************************************************************************
 *                           DEFINTION DES FONCTIONS PRIVEES                            *
