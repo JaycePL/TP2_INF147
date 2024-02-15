@@ -4,6 +4,7 @@
 *****************************************************************************************/
 #include <stdlib.h>
 #include <stdio.h>
+#include "tableau1d.h"
 
 /****************************************************************************************
 *                               DEFINTION DES CONSTANTES                                *
@@ -20,18 +21,21 @@
 /****************************************************************************************
 *                           DEFINTION DES FONCTIONS PUBLIQUES                            *
 ****************************************************************************************/
-void afficher_tableau1D(int tableau[],int nb_element)
+void afficher_tableau1D(double tableau[],int nb_element)
 {
     for(int index = 0; index < nb_element; index++)
     {
-        printf("%i  ",tableau[index]);
+        printf("%lf  ",tableau[index]);
     }
 }
 
-//void produit_tableau1D(int tableau[],int nb_element,double valeur)
-//{
-//
-//}
+void produit_tableau1D(double tableau[],int nb_element,double valeur)
+{
+    for(int index = 0; index < nb_element; index++)
+    {
+        tableau[index]*= tableau[index] * valeur;
+    }
+}
 
 
 

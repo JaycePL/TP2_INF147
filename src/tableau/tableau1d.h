@@ -6,13 +6,16 @@
 /****************************************************************************************
 *                               DEFINTION DES CONSTANTES                                *
 ****************************************************************************************/
-
+#ifndef H2024TP2_TABLEAU1D
+#define H2024TP2_TABLEAU1D
 
 
 /****************************************************************************************
 *                       DECLARATION DES FONCTIONS PUBLIQUES                             *
 ****************************************************************************************/
 
-void afficher_tableau1D(int tableau[],int nb_element);
+void afficher_tableau1D(double tableau[],int nb_element);
 
-void produit_tableau1D(int tableau[],int nb_element,double valeur);
+void produit_tableau1D(double tableau[],int nb_element,double valeur);
+
+#endif
