@@ -67,7 +67,7 @@ double produit_scalaire1D(double tableau1[],double tableau2[],int nb_element)
     return produit_scalaire;
 }
 
-double* creer_tableau1D(int nb_element)
+void* creer_tableau1D(int nb_element)
 {
     double *tableau = (double*) calloc(nb_element, sizeof(double));
 
