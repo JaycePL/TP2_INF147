@@ -69,16 +69,15 @@ double produit_scalaire1D(double tableau1[],double tableau2[],int nb_element)
 
 double* creer_tableau1D(int nb_element)
 {
-    double* tableau = (double*) calloc(nb_element, sizeof(double));
+    double *tableau = (double*) calloc(nb_element, sizeof(double));
 
     return tableau;
 }
 
-void detruire_tableau1D(void* pointeur)
+void detruire_tableau1D(double **pointeur)
 {
-
-    free(pointeur);
-
+    free(*pointeur);
+    *pointeur = NULL;
 }
 
 

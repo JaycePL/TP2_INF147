@@ -73,9 +73,28 @@ void tester_tableau1d(void)
     double produit_scalaire_tableau4_et_6 = produit_scalaire1D(tableau4,tableau6,5);
     printf("T2 : %0.3lf \n",produit_scalaire_tableau4_et_6);
 
+    int nb_element_T1 = 5;
+    int nb_element_T2 = 3;
     printf("\n\nFONCTION CREER TABLEAU1D \n");
+    printf("\nT1 : ");
+    double* T1 = creer_tableau1D(nb_element_T1);
+    for (int i = 0; i < nb_element_T1; i++)
+    {
+        double cellule = T1[i];
+        printf("%lf  ",cellule);
+    }
+    printf("\nT2 : ");
+    double* T2 = creer_tableau1D(nb_element_T2);
+    for (int i = 0; i < nb_element_T2; i++)
+    {
+        double cellule = T2[i];
+        printf("%lf  ",cellule);
+    }
 
-
-
-
+    detruire_tableau1D(&T1);
+    detruire_tableau1D(&T2);
+    printf("\n\nFONCTION DETRUIRE TABLEAU1D \n");
+    printf("\n T1 : %i",&*T1);
+    printf("\n T2 : %i",&*T2);
+    printf("\n\n");
 }
