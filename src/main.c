@@ -97,8 +97,8 @@ void tester_tableau1d(void)
     detruire_tableau1D(&T1);
     detruire_tableau1D(&T2);
     printf("\n\nFONCTION DETRUIRE TABLEAU1D \n");
-    printf("\n T1 : %i",&*T1);
-    printf("\n T2 : %i",&*T2);
+    printf("\n T1 : %p",&*T1);
+    printf("\n T2 : %p",&*T2);
     printf("\n\n");
 }
 
@@ -152,8 +152,8 @@ void tester_tableau2d(void)
     detruire_tableau2D(&T3, 3);
 
     printf("\nFONCTION AFFICHER_TABLEAU2D \n");
-    printf("\nT1 : %i\n",&T1);
-    printf("\nT2 : %i\n",&T2);
-    printf("\nT3 : %i\n",&T3);
+    printf("\nT1 : %p\n",(void*)T1);
+    printf("\nT2 : %p\n",(void*)T2);
+    printf("\nT3 : %p\n",(void*)T3);
 
 }

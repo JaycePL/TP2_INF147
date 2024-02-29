@@ -37,10 +37,12 @@ void detruire_tableau2D(double*** pointeur,int nb_lignes)
 {
     for(int i = 0; i < nb_lignes; i++)
     {
-        free(pointeur[i]);
+        free((*pointeur)[i]);
+        (*pointeur)[i] = NULL;
     }
 
-    free(pointeur);
+    free(*pointeur);
+    *pointeur = NULL;
 }
 
 void afficher_tableau2D(double** tableau, int nb_lignes, int nb_colonnes)
