@@ -33,7 +33,7 @@ void* creer_tableau2D(int nb_lignes,int nb_colonnes)
     return tableau;
 }
 
-void detruire_tableau2D(double** pointeur,int nb_lignes)
+void detruire_tableau2D(double*** pointeur,int nb_lignes)
 {
     for(int i = 0; i < nb_lignes; i++)
     {
@@ -41,4 +41,23 @@ void detruire_tableau2D(double** pointeur,int nb_lignes)
     }
 
     free(pointeur);
+}
+
+void afficher_tableau2D(double** tableau, int nb_lignes, int nb_colonnes)
+{
+
+    for(int ligne = 0; ligne < nb_lignes; ligne++)
+    {
+
+        for(int col = 0; col < nb_colonnes; col++)
+        {
+
+            printf("%0.3lf   ",tableau[ligne][col]);
+
+        }
+
+        printf("\n");
+
+    }
+
 }

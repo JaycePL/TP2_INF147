@@ -13,4 +13,5 @@
 *                       DECLARATION DES FONCTIONS PUBLIQUES                             *
 ****************************************************************************************/
 void* creer_tableau2D(int nb_lignes,int nb_colonnes);
-void detruire_tableau2D(double** pointeur,int nb_lignes);
+void detruire_tableau2D(double*** pointeur,int nb_lignes);
+void afficher_tableau2D(double** tableau, int nb_lignes, int nb_colonnes);

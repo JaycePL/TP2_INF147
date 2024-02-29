@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include "tableau/tableau1d.h"
+#include "tableau/tableau2d.h"
 
 
 void tester_tableau1d(void);
@@ -13,21 +14,23 @@ int main(void){
 
     printf("*********************************************************\n");
     printf("*                      TEST TABLEAU1D                   *\n");
-    printf("*********************************************************\n\n\n");
+    printf("*********************************************************\n\n");
 
     tester_tableau1d();
 
     printf("*********************************************************\n");
     printf("*                      TEST TABLEAU2D                   *\n");
-    printf("*********************************************************\n\n\n");
+    printf("*********************************************************\n\n");
+
+    tester_tableau2d();
 
     printf("*********************************************************\n");
     printf("*                        TEST NOYAU                     *\n");
-    printf("*********************************************************\n\n\n");
+    printf("*********************************************************\n\n");
 
     printf("*********************************************************\n");
     printf("*                      TEST IMAGE GRIS                  *\n");
-    printf("*********************************************************\n\n\n");
+    printf("*********************************************************\n\n");
 
 
     return EXIT_SUCCESS;
@@ -97,4 +100,60 @@ void tester_tableau1d(void)
     printf("\n T1 : %i",&*T1);
     printf("\n T2 : %i",&*T2);
     printf("\n\n");
+}
+
+void tester_tableau2d(void)
+{
+    double tableau1[3][2]={{1,2},{4,5},{7,8}};
+    double tableau2[3][4]={{1.1,2.1,3.1,0.25},{4.1,5.1,6.1,0.33},{7.1,8.1,9.1,0.80}};
+    double tableau3[3][2]={{0.25,0.50},{0.75,1.0},{0.33,0.66}};
+
+    double** T1 = creer_tableau2D(3,2);
+    double** T2 = creer_tableau2D(3,4);
+    double** T3 = creer_tableau2D(3,2);
+
+    for(int ligne = 0; ligne < 3; ligne++) {
+
+        for (int col = 0; col < 2; col++) {
+
+            T1[ligne][col] = tableau1[ligne][col];
+
+        }
+    }
+
+    for(int ligne = 0; ligne < 3; ligne++) {
+
+        for (int col = 0; col < 4; col++) {
+
+            T2[ligne][col] = tableau2[ligne][col];
+
+        }
+    }
+
+    for(int ligne = 0; ligne < 3; ligne++) {
+
+        for (int col = 0; col < 2; col++) {
+
+            T3[ligne][col] = tableau3[ligne][col];
+
+        }
+    }
+
+    printf("\nFONCTION AFFICHER_TABLEAU2D \n");
+    printf("\nT1 : \n");
+    afficher_tableau2D(T1,3,2);
+    printf("\nT2 : \n");
+    afficher_tableau2D(T2,3,4);
+    printf("\nT3 : \n");
+    afficher_tableau2D(T3,3,2);
+
+    detruire_tableau2D(&T1, 3);
+    detruire_tableau2D(&T2, 3);
+    detruire_tableau2D(&T3, 3);
+
+    printf("\nFONCTION AFFICHER_TABLEAU2D \n");
+    printf("\nT1 : %i\n",&T1);
+    printf("\nT2 : %i\n",&T2);
+    printf("\nT3 : %i\n",&T3);
+
 }
