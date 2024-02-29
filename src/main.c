@@ -156,4 +156,92 @@ void tester_tableau2d(void)
     printf("\nT2 : %p\n",(void*)T2);
     printf("\nT3 : %p\n",(void*)T3);
 
+    T1 = creer_tableau2D(3,2);
+    T2 = creer_tableau2D(3,4);
+    T3 = creer_tableau2D(3,2);
+
+    initialiser_tableau2D(T2,3,4,8);
+
+    printf("\nFONCTION INITIALISER_TABLEAU2D \n");
+    printf("\nT1 : \n");
+    afficher_tableau2D(T2,3,4);
+
+    for(int ligne = 0; ligne < 3; ligne++) {
+
+        for (int col = 0; col < 4; col++) {
+
+            T2[ligne][col] = tableau2[ligne][col];
+
+        }
+    }
+
+    double resultat_tableau1 = somme_tableau2D(T1,3,2);
+    double resultat_tableau2 = somme_tableau2D(T2,3,4);
+
+    printf("\n\nFONCTION SOMME_TABLEAU2D \n");
+    printf("\nT1 : %lf",resultat_tableau1);
+    printf("\nT1 : %lf",resultat_tableau2);
+
+    produit_par_scalaire2D(T1,3,2,0.1);
+    produit_par_scalaire2D(T2,3,4,10);
+
+    printf("\n\nFONCTION PRODUIT_PAR_SCALAIRE2D \n");
+    printf("\nT1 : \n");
+    afficher_tableau2D(T1,3,2);
+    printf("\nT2 : \n");
+    afficher_tableau2D(T2,3,4);
+
+    for(int ligne = 0; ligne < 3; ligne++) {
+
+        for (int col = 0; col < 2; col++) {
+
+            T1[ligne][col] = tableau1[ligne][col];
+
+        }
+    }
+
+    for(int ligne = 0; ligne < 3; ligne++) {
+
+        for (int col = 0; col < 4; col++) {
+
+            T2[ligne][col] = tableau2[ligne][col];
+
+        }
+    }
+
+    printf("\n\nFONCTION PUISSANCE_TABLEAU2D \n");
+    printf("\nT1 : \n");
+    puissance_tableau2D(T1,3,2,2);
+    afficher_tableau2D(T1,3,2);
+    printf("\nT2 : \n");
+    puissance_tableau2D(T2,3,4,0.5);
+    afficher_tableau2D(T2,3,4);
+
+    for(int ligne = 0; ligne < 3; ligne++) {
+
+        for (int col = 0; col < 2; col++) {
+
+            T1[ligne][col] = tableau1[ligne][col];
+
+        }
+    }
+
+    for(int ligne = 0; ligne < 3; ligne++) {
+
+        for (int col = 0; col < 4; col++) {
+
+            T2[ligne][col] = tableau2[ligne][col];
+
+        }
+    }
+
+
+
+    printf("\n\nFONCTION PRODUIT_TABLEAU2D \n");
+    double** T4 = creer_tableau2D(3,2);
+    produit_tableau2D(T1,T2,3,2,&T4);
+    printf("\nT4 : \n");
+    afficher_tableau2D(T4,3,2);
+
+    detruire_tableau2D(&T4, 3);
 }
