@@ -1,12 +1,14 @@
 #include <stdlib.h>
 #include <stdio.h>
+
+#include "image/noyeau_filtre.h"
 #include "tableau/tableau1d.h"
 #include "tableau/tableau2d.h"
 
 
 void tester_tableau1d(void);
 void tester_tableau2d(void);
-void tester_noyau(void);
+void tester_noyeau(void);
 void tetser_image_gris(void);
 
 
@@ -27,6 +29,7 @@ int main(void){
     printf("*********************************************************\n");
     printf("*                        TEST NOYAU                     *\n");
     printf("*********************************************************\n\n");
+    tester_noyeau();
 
     printf("*********************************************************\n");
     printf("*                      TEST IMAGE GRIS                  *\n");
@@ -244,4 +247,29 @@ void tester_tableau2d(void)
     afficher_tableau2D(T4,3,2);
 
     detruire_tableau2D(&T4, 3);
+}
+void tester_noyeau(void) {
+    printf("PASSE HAUT\n");
+    T_liste filtre_haut = filtre_passe_haut();
+    afficher_tableau2D(filtre_haut.data, 3,3);
+
+    printf("\n\nPASSE BAS\n");
+
+    T_liste filtre_bas = filtre_passe_bas();
+    afficher_tableau2D(filtre_bas.data, 3,3);
+
+    printf("\n\nMOYEN\n");
+
+    T_liste moyenneur = filtre_passe_moyenneur();
+    afficher_tableau2D(moyenneur.data, 3,3);
+
+    printf("\n\nLAPLACIEN\n");
+
+    T_liste laplacien = filtre_laplacien();
+    afficher_tableau2D(laplacien.data, 3,3);
+
+    detruire_filtre(&filtre_haut);
+    detruire_filtre(&filtre_bas);
+    detruire_filtre(&moyenneur);
+    detruire_filtre(&laplacien);
 }

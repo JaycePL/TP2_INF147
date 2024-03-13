@@ -54,9 +54,8 @@ void afficher_tableau2D(double** tableau, int nb_ligne, int nb_colonne)
 
         for(int col = 0; col < nb_colonne; col++)
         {
-
-            printf("%0.3lf   ",tableau[ligne][col]);
-
+            if (tableau[ligne][col] < 0) printf("%0.3lf  ",tableau[ligne][col]);
+            else printf(" %0.3lf  ",tableau[ligne][col]);
         }
 
         printf("\n");
