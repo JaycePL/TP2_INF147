@@ -8,12 +8,14 @@ set(PROJECT_HEADERS
         src/image/noyeau_filtre.h
         src/tableau/tableau1d.h
         src/tableau/tableau2d.h
+        src/image/image_gris.h
    )
 
 set(PROJECT_SOURCES
         src/main.c
         src/image/noyeau_filtre.c
         src/image/bitmap.c
+        src/image/image_gris.c
         src/tableau/tableau1d.c
         src/tableau/tableau2d.c
     )
