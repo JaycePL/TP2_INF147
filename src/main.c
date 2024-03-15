@@ -2,6 +2,7 @@
 #include <stdio.h>
 
 #include "image/bitmap.h"
+#include "image/image_gris.h"
 #include "image/noyeau_filtre.h"
 #include "tableau/tableau1d.h"
 #include "tableau/tableau2d.h"
@@ -10,12 +11,12 @@
 void tester_tableau1d(void);
 void tester_tableau2d(void);
 void tester_noyeau(void);
-void tetser_image_gris(void);
+void tester_image_gris(void);
 
 
 int main(void){
 
-    printf("*********************************************************\n");
+   /* printf("*********************************************************\n");
     printf("*                      TEST TABLEAU1D                   *\n");
     printf("*********************************************************\n\n");
 
@@ -30,12 +31,12 @@ int main(void){
     printf("*********************************************************\n");
     printf("*                        TEST NOYAU                     *\n");
     printf("*********************************************************\n\n");
-    tester_noyeau();
+    tester_noyeau();*/
 
     printf("*********************************************************\n");
     printf("*                      TEST IMAGE GRIS                  *\n");
     printf("*********************************************************\n\n");
-
+    tester_image_gris();
 
     return EXIT_SUCCESS;
 }
@@ -277,6 +278,80 @@ void tester_noyeau(void) {
 
 }
 
-void tetser_image_gris(void) {
+void tester_image_gris(void) {
+    void* image;
+    int   a_ete_charger;
+    int   nb_lignes;
+    int   nb_colonnes;
+
+    printf("Charger plaque_test_1.bmp\n");
+    a_ete_charger = lire("C:\\Users\\Hakim\\Documents\\GitHub\\TP2_INF147\\data\\plaque_test_1.bmp", &image,&nb_lignes,&nb_colonnes);
+    if(a_ete_charger)
+    {
+        printf("Appliquer la fonction negatif.\n");
+        negatif(image, nb_lignes,nb_colonnes);
+        printf("Enregistrer sous.\n");
+        ecrire("C:\\Users\\Hakim\\Documents\\GitHub\\TP2_INF147\\data\\resultat_negatif1.bmp", image, nb_lignes,nb_colonnes);
+        printf("resultat_negatif1.bmp\n");
+    }
+    detruire(image, nb_lignes, nb_colonnes);
+
+    printf("Charger plaque_test_1.bmp\n");
+
+    a_ete_charger = lire("C:\\Users\\Hakim\\Documents\\GitHub\\TP2_INF147\\data\\plaque_test_2.bmp", &image, &nb_lignes, &nb_colonnes);
+
+    if(a_ete_charger)
+    {
+        printf("Appliquer la fonction negatif.\n");
+        negatif(image, nb_lignes,nb_colonnes);
+        printf("Enregistrer sous.\n");
+        ecrire("C:\\Users\\Hakim\\Documents\\GitHub\\TP2_INF147\\data\\resultat_negatif2.bmp", image, nb_lignes,nb_colonnes);
+        printf("resultat_negatif1.bmp\n");
+    }
+
+    detruire(image, nb_lignes, nb_colonnes);
+
+    a_ete_charger = lire("C:\\Users\\Hakim\\Documents\\GitHub\\TP2_INF147\\data\\plaque_test_1.bmp", &image, &nb_lignes, &nb_colonnes);
+
+    if(a_ete_charger)
+    {
+        printf("Seuillez avec un seuil 0.5 \n");
+        seuiller(image, nb_lignes,nb_colonnes,0.5);
+        printf("Enregistrer sous.\n");
+        ecrire("C:\\Users\\Hakim\\Documents\\GitHub\\TP2_INF147\\data\\resultat_seuil1.bmp", image, nb_lignes,nb_colonnes);
+       printf("resultat_seuillez1.bmp\n");
+    }
+
+    detruire(image, nb_lignes, nb_colonnes);
+
+    a_ete_charger = lire("C:\\Users\\Hakim\\Documents\\GitHub\\TP2_INF147\\data\\plaque_test_2.bmp", &image, &nb_lignes, &nb_colonnes);
+
+    if(a_ete_charger)
+    {
+        printf("Seuillez avec un seuil 0.25 \n");
+        seuiller(image, nb_lignes,nb_colonnes,0.25);
+        printf("Enregistrer sous.\n");
+        ecrire("C:\\Users\\Hakim\\Documents\\GitHub\\TP2_INF147\\data\\resultat_seuil2.bmp", image, nb_lignes,nb_colonnes);
+        printf("resultat_seuillez1.bmp\n");
+    }
+    a_ete_charger = lire("C:\\Users\\Hakim\\Documents\\GitHub\\TP2_INF147\\data\\plaque_test_1.bmp", &image, &nb_lignes, &nb_colonnes);
+
+    if(a_ete_charger)
+    {
+        double *histo = histogramme(image, nb_lignes,nb_colonnes,10);
+        printf("plaques1 - 10 classes : ");
+        afficher_tableau1D(histo,10);
+        detruire_tableau1D(&histo);
+    }
+
+    a_ete_charger = lire("C:\\Users\\Hakim\\Documents\\GitHub\\TP2_INF147\\data\\plaque_test_1.bmp", &image, &nb_lignes, &nb_colonnes);
+
+    if(a_ete_charger)
+    {
+        double *histo = histogramme(image, nb_lignes,nb_colonnes,15);
+        printf("\n \nplaques1 - 15 classes : ");
+        afficher_tableau1D(histo,15);
+        detruire_tableau1D(&histo);
+    }
 
 };

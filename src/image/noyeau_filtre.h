@@ -1,6 +1,5 @@
 #ifndef NOYEAU_FILTRE
 #define NOYEAU_FILTRE
-#include "../tableau/tableau2d.h"
 
 #define DIMENSION 3
 #define NB_POINTS 3
