@@ -48,9 +48,15 @@
 //
 void* creer_tableau2D(int nb_ligne,int nb_colonne)
 {
+    // On créé un tableau de réels.
     double** tableau;
 
+    // On alloue en mémoire l'espace requis pour le type de tableau et le nb de lignes nécessaire.
+    // On initialise les cases créé a 0 pour bonne mesure.
     tableau = (double**) calloc(nb_ligne, sizeof(double*));
+
+    // Après l'allocation de base, on alloue la mémoire pour le nb de cases comprisent dans nb_colonne.
+    // On initialise les cases créé a 0 pour bonne mesure.
     for(int i = 0; i < nb_ligne; i++)
     {
         tableau[i] = (double*) calloc(nb_colonne, sizeof(double));
@@ -65,13 +71,19 @@ void* creer_tableau2D(int nb_ligne,int nb_colonne)
 //
 void detruire_tableau2D(double*** pointeur,int nb_ligne)
 {
+    // On parcours l'adresse de chaque ligne du tableau en mémoire.
     for(int i = 0; i < nb_ligne; i++)
     {
+        // On libère la mémoire a cette adresse.
         free((*pointeur)[i]);
+        // On modifie le pointeur de la ligne pour qu'il pointe nulle part.
         (*pointeur)[i] = NULL;
     }
 
+    // On libère la mémoire du tableau lorsque toute les lignes ont été fait.
     free(*pointeur);
+
+    // On modifie le pointeur du tableau pour qu'il pointe nulle part.
     *pointeur = NULL;
 }
 
@@ -82,15 +94,19 @@ void detruire_tableau2D(double*** pointeur,int nb_ligne)
 void afficher_tableau2D(double** tableau, int nb_ligne, int nb_colonne)
 {
 
-    for(int ligne = 0; ligne < nb_ligne; ligne++)
+    // On parcourt chque ligne du tableau.
+    for(int i = 0; i < nb_ligne; i++)
     {
-
-        for(int col = 0; col < nb_colonne; col++)
+        // On parcourt chaque case selon le nb de colonnes.
+        for(int j = 0; j < nb_colonne; j++)
         {
-            if (tableau[ligne][col] < 0) printf("%0.3lf  ",tableau[ligne][col]);
-            else printf(" %0.3lf  ",tableau[ligne][col]);
+            // on vérifie si la case est dans le négatif et on applique le format adéquat.
+            if (tableau[i][j] < 0) printf("%0.3lf  ",tableau[i][j]);
+            //sinon on applique le format standard.
+            else printf(" %0.3lf  ",tableau[i][j]);
         }
 
+        // On créé une nouvelle ligne lorsque toutes les cases d'une ligne on été affiché.
         printf("\n");
 
     }
@@ -104,11 +120,14 @@ void afficher_tableau2D(double** tableau, int nb_ligne, int nb_colonne)
 void initialiser_tableau2D(double** tableau, int nb_ligne, int nb_colonne, double valeur)
 {
 
-    for(int ligne = 0; ligne < nb_ligne; ligne++) {
-
-        for (int col = 0; col < nb_colonne; col++) {
-
-            tableau[ligne][col] = valeur;
+    // On parcourt chaque ligne du tableau.
+    for(int i = 0; i < nb_ligne; i++)
+    {
+        // On parcourt chaque colonne du tableau.
+        for (int j = 0; j < nb_colonne; j++)
+        {
+            // On modifie la case pour y mettre la valeur spécifié dans le paramètre valeur.
+            tableau[i][j] = valeur;
 
         }
     }
@@ -120,13 +139,18 @@ void initialiser_tableau2D(double** tableau, int nb_ligne, int nb_colonne, doubl
 //
 double somme_tableau2D(double** tableau, int nb_ligne, int nb_colonne)
 {
+    // Ce paramètre en format réel nous sert a faire la somme des résultats.
     double resultat = 0;
 
-    for(int ligne = 0; ligne < nb_ligne; ligne++) {
+    // On parcourt chaque ligne du tableau.
+    for(int i = 0; i < nb_ligne; i++)
+    {
 
-        for (int col = 0; col < nb_colonne; col++) {
-
-            resultat += tableau[ligne][col];
+        // On parcourt chaque colonne du tableau.
+        for (int j = 0; j < nb_colonne; j++)
+        {
+            // On fait la somme de la valeur de resultat et de la valeur réelle dans la case actuelle.
+            resultat += tableau[i][j];
 
         }
     }
@@ -140,12 +164,14 @@ double somme_tableau2D(double** tableau, int nb_ligne, int nb_colonne)
 //
 void produit_par_scalaire2D(double** tableau, int nb_ligne, int nb_colonne, double facteur)
 {
-
-    for(int ligne = 0; ligne < nb_ligne; ligne++) {
-
-        for (int col = 0; col < nb_colonne; col++) {
-
-            tableau[ligne][col] = tableau[ligne][col] * facteur;
+    // On parcourt chaque ligne du tableau.
+    for(int i = 0; i < nb_ligne; i++)
+    {
+        // On parcourt chaque colonne du tableau.
+        for (int j = 0; j < nb_colonne; j++)
+        {
+            // On modifie la case en multipliant la valeure actuelle avec le paramètre facteur.
+            tableau[i][j] = tableau[i][j] * facteur;
 
         }
     }
@@ -158,12 +184,14 @@ void produit_par_scalaire2D(double** tableau, int nb_ligne, int nb_colonne, doub
 //
 void puissance_tableau2D(double** tableau, int nb_ligne, int nb_colonne, double puissance)
 {
-
-    for(int ligne = 0; ligne < nb_ligne; ligne++) {
-
-        for (int col = 0; col < nb_colonne; col++) {
-
-            tableau[ligne][col] = pow(tableau[ligne][col],puissance);
+    // On parcourt chaque ligne du tableau.
+    for(int i = 0; i < nb_ligne; i++)
+    {
+        // On parcourt chaque colonne du tableau.
+        for (int j = 0; j < nb_colonne; j++)
+        {
+            // On modifie la case en faisant mettant la valeur actuelle a la puissance du paramètre puissance.
+            tableau[i][j] = pow(tableau[i][j],puissance);
 
         }
     }
@@ -177,12 +205,14 @@ void puissance_tableau2D(double** tableau, int nb_ligne, int nb_colonne, double 
 //
 void produit_tableau2D(double** tableau1, double** tableau2, int nb_ligne, int nb_colonne, double*** resultat)
 {
-
-    for(int ligne = 0; ligne < nb_ligne; ligne++) {
-
-        for (int col = 0; col < nb_colonne; col++) {
-
-            (*resultat)[ligne][col] = tableau1[ligne][col] * tableau2[ligne][col];
+    // On parcourt chaque ligne des tableaux.
+    for(int i = 0; i < nb_ligne; i++)
+    {
+        // On parcourt chaque colonne des tableaux.
+        for (int j = 0; j < nb_colonne; j++)
+        {
+            // On entre dans le troisième tableau, le résultat du produit des deux premiers tableaux a la case actuelle.
+            (*resultat)[i][j] = tableau1[i][j] * tableau2[i][j];
 
         }
     }

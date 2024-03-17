@@ -1,3 +1,18 @@
+/****************************************************************************************
+/*                                      MAIN.C                                          *
+/****************************************************************************************
+    Auteurs : Cédric Benoit, Hakim-Anis Hamani et Jasmin Papierz-Lambert
+    Date    : 15 mars 2024
+
+    Contient le programme principal du TP.
+
+    Liste des fonctions publiques:
+      - tester_tableau1d        : Permet de tester nos fonctions dans tableau1d.c et .h
+      - tester_tableau2d        : Permet de tester nos fonctions dans tableau2d.c et .h
+      - tester_noyau            : Permet de tester nos fonctions dans noyeau_filtre.c et .h
+      - tester_image_gris       : Permet de tester nos fonctions dans image_gris.c et .h
+
+*****************************************************************************************/
 #include <stdlib.h>
 #include <stdio.h>
 
@@ -16,7 +31,7 @@ void tester_image_gris(void);
 
 int main(void){
 
-   /* printf("*********************************************************\n");
+   printf("*********************************************************\n");
     printf("*                      TEST TABLEAU1D                    *\n");
     printf("*********************************************************\n\n");
 
@@ -24,9 +39,9 @@ int main(void){
 
     printf("*********************************************************\n");
     printf("*                      TEST TABLEAU2D                   *\n");
-    printf("*********************************************************\n\n");*/
+    printf("*********************************************************\n\n");
 
-    /*tester_tableau2d();*/
+    tester_tableau2d();
 
     printf("*********************************************************\n");
     printf("*                        TEST NOYAU                     *\n");
@@ -285,56 +300,56 @@ void tester_image_gris(void) {
     int   nb_colonnes;
 
     printf("Charger plaque_test_1.bmp\n");
-    a_ete_charger = lire("C:\\Users\\Hakim\\Documents\\GitHub\\TP2_INF147\\data\\plaque_test_1.bmp", &image,&nb_lignes,&nb_colonnes);
+    a_ete_charger = lire("..\\data\\plaque_test_1.bmp", &image,&nb_lignes,&nb_colonnes);
     if(a_ete_charger)
     {
         printf("Appliquer la fonction negatif.\n");
         negatif(image, nb_lignes,nb_colonnes);
         printf("Enregistrer sous.\n");
-        ecrire("C:\\Users\\Hakim\\Documents\\GitHub\\TP2_INF147\\data\\resultat_negatif1.bmp", image, nb_lignes,nb_colonnes);
+        ecrire("..\\data\\resultat_negatif1.bmp", image, nb_lignes,nb_colonnes);
         printf("resultat_negatif1.bmp\n");
     }
     detruire(image, nb_lignes, nb_colonnes);
 
     printf("Charger plaque_test_1.bmp\n");
 
-    a_ete_charger = lire("C:\\Users\\Hakim\\Documents\\GitHub\\TP2_INF147\\data\\plaque_test_2.bmp", &image, &nb_lignes, &nb_colonnes);
+    a_ete_charger = lire("..\\data\\plaque_test_2.bmp", &image, &nb_lignes, &nb_colonnes);
 
     if(a_ete_charger)
     {
         printf("Appliquer la fonction negatif.\n");
         negatif(image, nb_lignes,nb_colonnes);
         printf("Enregistrer sous.\n");
-        ecrire("C:\\Users\\Hakim\\Documents\\GitHub\\TP2_INF147\\data\\resultat_negatif2.bmp", image, nb_lignes,nb_colonnes);
+        ecrire("..\\data\\resultat_negatif2.bmp", image, nb_lignes,nb_colonnes);
         printf("resultat_negatif1.bmp\n");
     }
 
     detruire(image, nb_lignes, nb_colonnes);
 
-    a_ete_charger = lire("C:\\Users\\Hakim\\Documents\\GitHub\\TP2_INF147\\data\\plaque_test_1.bmp", &image, &nb_lignes, &nb_colonnes);
+    a_ete_charger = lire("..\\data\\plaque_test_1.bmp", &image, &nb_lignes, &nb_colonnes);
 
     if(a_ete_charger)
     {
         printf("Seuillez avec un seuil 0.5 \n");
         seuiller(image, nb_lignes,nb_colonnes,0.5);
         printf("Enregistrer sous.\n");
-        ecrire("C:\\Users\\Hakim\\Documents\\GitHub\\TP2_INF147\\data\\resultat_seuil1.bmp", image, nb_lignes,nb_colonnes);
+        ecrire("..\\data\\resultat_seuil1.bmp", image, nb_lignes,nb_colonnes);
        printf("resultat_seuillez1.bmp\n");
     }
 
     detruire(image, nb_lignes, nb_colonnes);
 
-    a_ete_charger = lire("C:\\Users\\Hakim\\Documents\\GitHub\\TP2_INF147\\data\\plaque_test_2.bmp", &image, &nb_lignes, &nb_colonnes);
+    a_ete_charger = lire("..\\data\\plaque_test_2.bmp", &image, &nb_lignes, &nb_colonnes);
 
     if(a_ete_charger)
     {
         printf("Seuillez avec un seuil 0.25 \n");
         seuiller(image, nb_lignes,nb_colonnes,0.25);
         printf("Enregistrer sous.\n");
-        ecrire("C:\\Users\\Hakim\\Documents\\GitHub\\TP2_INF147\\data\\resultat_seuil2.bmp", image, nb_lignes,nb_colonnes);
+        ecrire("..\\data\\resultat_seuil2.bmp", image, nb_lignes,nb_colonnes);
         printf("resultat_seuillez1.bmp\n");
     }
-    a_ete_charger = lire("C:\\Users\\Hakim\\Documents\\GitHub\\TP2_INF147\\data\\plaque_test_1.bmp", &image, &nb_lignes, &nb_colonnes);
+    a_ete_charger = lire("..\\data\\plaque_test_1.bmp", &image, &nb_lignes, &nb_colonnes);
 
     if(a_ete_charger)
     {
@@ -344,7 +359,7 @@ void tester_image_gris(void) {
         detruire_tableau1D(&histo);
     }
 
-    a_ete_charger = lire("C:\\Users\\Hakim\\Documents\\GitHub\\TP2_INF147\\data\\plaque_test_1.bmp", &image, &nb_lignes, &nb_colonnes);
+    a_ete_charger = lire("..\\data\\plaque_test_1.bmp", &image, &nb_lignes, &nb_colonnes);
 
     if(a_ete_charger)
     {
@@ -354,29 +369,29 @@ void tester_image_gris(void) {
         detruire_tableau1D(&histo);
     }
 
-    a_ete_charger = lire("C:\\Users\\Hakim\\Documents\\GitHub\\TP2_INF147\\data\\plaque_test_1.bmp", &image, &nb_lignes, &nb_colonnes);
+    a_ete_charger = lire("..\\data\\plaque_test_1.bmp", &image, &nb_lignes, &nb_colonnes);
 
     if(a_ete_charger)
     {
         t_filtre *filtre_bas = filtre_passe_bas();
         filtrer(image, nb_lignes,nb_colonnes,filtre_bas);
         printf("Enregistrer sous.\n");
-        ecrire("C:\\Users\\Hakim\\Documents\\GitHub\\TP2_INF147\\data\\resultat_passe_bas2.bmp", image, nb_lignes,nb_colonnes);
+        ecrire("..\\data\\resultat_passe_bas1.bmp", image, nb_lignes,nb_colonnes);
         printf("resultat_passe_bas1.bmp\n");
     }
 
-    a_ete_charger = lire("C:\\Users\\Hakim\\Documents\\GitHub\\TP2_INF147\\data\\plaque_test_2.bmp", &image, &nb_lignes, &nb_colonnes);
+    a_ete_charger = lire("..\\data\\plaque_test_2.bmp", &image, &nb_lignes, &nb_colonnes);
 
     if(a_ete_charger)
     {
         t_filtre *filtre_haut = filtre_passe_haut();
         filtrer(image, nb_lignes,nb_colonnes,filtre_haut);
         printf("Enregistrer sous.\n");
-        ecrire("C:\\Users\\Hakim\\Documents\\GitHub\\TP2_INF147\\data\\resultat_passe_haut2.bmp", image, nb_lignes,nb_colonnes);
-        printf("resultat_passe_bas1.bmp\n");
+        ecrire("..\\data\\resultat_passe_haut2.bmp", image, nb_lignes,nb_colonnes);
+        printf("resultat_passe_haut2.bmp\n");
     }
 
-    a_ete_charger = lire("C:\\Users\\Hakim\\Documents\\GitHub\\TP2_INF147\\data\\plaque_test_1.bmp", &image, &nb_lignes, &nb_colonnes);
+    a_ete_charger = lire("..\\data\\plaque_test_1.bmp", &image, &nb_lignes, &nb_colonnes);
     if(a_ete_charger)
     {
         t_filtre *filtre_lapl = filtre_laplacien();
@@ -384,18 +399,18 @@ void tester_image_gris(void) {
         filtrer(image, nb_lignes,nb_colonnes,filtre_lapl);
         negatif(image, nb_lignes,nb_colonnes);
         printf("Enregistrer sous.\n");
-        ecrire("C:\\Users\\Hakim\\Documents\\GitHub\\TP2_INF147\\data\\resultat_laplacien1.bmp", image, nb_lignes,nb_colonnes);
+        ecrire("..\\data\\resultat_laplacien1.bmp", image, nb_lignes,nb_colonnes);
         printf("resultat_laplacien1.bmp\n");
     }
 
-    a_ete_charger = lire("C:\\Users\\Hakim\\Documents\\GitHub\\TP2_INF147\\data\\plaque_test_2.bmp", &image, &nb_lignes, &nb_colonnes);
+    a_ete_charger = lire("..\\data\\plaque_test_2.bmp", &image, &nb_lignes, &nb_colonnes);
     if(a_ete_charger)
     {
         t_filtre *filtre_lapl = filtre_laplacien();
         seuiller(image, nb_lignes,nb_colonnes,0.25);
         filtrer(image, nb_lignes,nb_colonnes,filtre_lapl);
         printf("Enregistrer sous.\n");
-        ecrire("C:\\Users\\Hakim\\Documents\\GitHub\\TP2_INF147\\data\\resultat_laplacien2.bmp", image, nb_lignes,nb_colonnes);
+        ecrire("..\\data\\resultat_laplacien2.bmp", image, nb_lignes,nb_colonnes);
         printf("resultat_laplacien1.bmp\n");
     }
 
