@@ -1,10 +1,31 @@
 /****************************************************************************************
-    TABLEAU_2D
+/*                                     TABLEAU2D.H                                      *
+/****************************************************************************************
+    Auteurs : Cédric Benoit, Hakim-Anis Hamani et Jasmin Papierz-Lambert
+    Date    : 15 mars 2024
+
+    Ce module contient des fonctions pour manipuler des tableaux 2D de réels.
+
+    Liste des fonctions publiques:
+      - creer_tableau2D        : Crée un tableau dynamique 2D.
+      - detruire_tableau2D     : Détruit un tableau dynamique 2D.
+      - afficher_tableau2D     : Affiche les valeurs d'un tableau 2D.
+      - initialiser_tableau2D  : Initialise toutes les cases du tableau 2D avec la valeur
+                                 assigner.
+      - somme_tableau2D        : Retourne la somme de toutes les cases du tableau 2D.
+      - produit_par_scalaire2D : Multiplie chacune des cases du tableau 2D avec un
+                                 facteur multiplicatif.
+      - puissance_tableau2D    : Applique une puissance à chacune des cases du tableau 2D.
+      - produit_tableau2D      : Multiplie deux tableaux 2D case par case et inscrit les
+                                 résultats dans un nouveau tableau 2D.
 
 *****************************************************************************************/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
+
+#include "tableau2d.h"
 
 /****************************************************************************************
 *                               DEFINTION DES CONSTANTES                                *
@@ -21,6 +42,10 @@
 /****************************************************************************************
 *                           DEFINTION DES FONCTIONS PUBLIQUES                            *
 ****************************************************************************************/
+
+//
+//  Cette fonction crée un tableau 2D.
+//
 void* creer_tableau2D(int nb_ligne,int nb_colonne)
 {
     double** tableau;
@@ -34,6 +59,10 @@ void* creer_tableau2D(int nb_ligne,int nb_colonne)
     return tableau;
 }
 
+
+//
+//  Cette fonction détruit un tableau 2D.
+//
 void detruire_tableau2D(double*** pointeur,int nb_ligne)
 {
     for(int i = 0; i < nb_ligne; i++)
@@ -46,6 +75,10 @@ void detruire_tableau2D(double*** pointeur,int nb_ligne)
     *pointeur = NULL;
 }
 
+
+//
+//  Cette fonction affiche les valeurs d'un tableau 2D.
+//
 void afficher_tableau2D(double** tableau, int nb_ligne, int nb_colonne)
 {
 
@@ -64,6 +97,10 @@ void afficher_tableau2D(double** tableau, int nb_ligne, int nb_colonne)
 
 }
 
+
+//
+//  Cette fonction initialise toutes les cases du tableau 2D avec une valeur assignée.
+//
 void initialiser_tableau2D(double** tableau, int nb_ligne, int nb_colonne, double valeur)
 {
 
@@ -77,6 +114,10 @@ void initialiser_tableau2D(double** tableau, int nb_ligne, int nb_colonne, doubl
     }
 }
 
+
+//
+//  Cette fonction fait la somme de toutes les cases du tableau 2D.
+//
 double somme_tableau2D(double** tableau, int nb_ligne, int nb_colonne)
 {
     double resultat = 0;
@@ -93,6 +134,10 @@ double somme_tableau2D(double** tableau, int nb_ligne, int nb_colonne)
     return resultat;
 }
 
+
+//
+//  Cette fonction multiplie chacune des cases du tableau 2D avec un facteur multiplicatif.
+//
 void produit_par_scalaire2D(double** tableau, int nb_ligne, int nb_colonne, double facteur)
 {
 
@@ -107,6 +152,10 @@ void produit_par_scalaire2D(double** tableau, int nb_ligne, int nb_colonne, doub
 
 }
 
+
+//
+//  Cette fonction applique une puissance à chacune des cases du tableau 2D.
+//
 void puissance_tableau2D(double** tableau, int nb_ligne, int nb_colonne, double puissance)
 {
 
@@ -121,6 +170,11 @@ void puissance_tableau2D(double** tableau, int nb_ligne, int nb_colonne, double 
 
 }
 
+
+//
+//  Cette fonction multiplie deux tableaux 2D case par case et inscrit les
+//  résultats dans un nouveau tableau 2D.
+//
 void produit_tableau2D(double** tableau1, double** tableau2, int nb_ligne, int nb_colonne, double*** resultat)
 {
 

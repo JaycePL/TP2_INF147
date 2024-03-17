@@ -17,7 +17,7 @@ void tester_image_gris(void);
 int main(void){
 
    /* printf("*********************************************************\n");
-    printf("*                      TEST TABLEAU1D                   *\n");
+    printf("*                      TEST TABLEAU1D                    *\n");
     printf("*********************************************************\n\n");
 
     tester_tableau1d();
@@ -399,4 +399,4 @@ void tester_image_gris(void) {
         printf("resultat_laplacien1.bmp\n");
     }
 
-};
+}
