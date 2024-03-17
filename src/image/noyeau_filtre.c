@@ -2,7 +2,7 @@
 /*                                     NOYAU_FILTRE.C                                   *
 /****************************************************************************************
     Auteurs : Cédric Benoit, Hakim-Anis Hamani et Jasmin Papierz-Lambert
-    Date    : 15 mars 2024
+    Date    : 17 mars 2024
 
     Ce module contient la définition d'un nouveau type de même que 5 fonctions pour
     manipuler des tableaux 2D de réels.

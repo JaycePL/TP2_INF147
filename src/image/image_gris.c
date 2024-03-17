@@ -2,7 +2,7 @@
 /*                                      IMAGE_GRIS.C                                    *
 /****************************************************************************************
     Auteurs : Cédric Benoit, Hakim-Anis Hamani et Jasmin Papierz-Lambert
-    Date    : 15 mars 2024
+    Date    : 17 mars 2024
 
     Ce module contient la définition d'un nouveau type de même que 4 fonctions pour
     manipuler des tableaux 2D de réels.
@@ -155,7 +155,7 @@ void filtrer(double** image, int nb_lignes, int nb_colonnes,t_filtre *filtre) {
     for (int i = 0; i < nb_lignes; ++i) {
         for (int j = 0; j < nb_colonnes; ++j)
         {
-            // On transfert la nouvelle valeur des pixels dans la nouvelle image (tableau 2D).
+            // On transfert la nouvelle valeur des pixels dans la nouvelle image (tableau 2D)
             image[i][j] = image_stockage[i][j];
         }
     }

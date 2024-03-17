@@ -2,7 +2,7 @@
 /*                                      MAIN.C                                          *
 /****************************************************************************************
     Auteurs : Cédric Benoit, Hakim-Anis Hamani et Jasmin Papierz-Lambert
-    Date    : 15 mars 2024
+    Date    : 17 mars 2024
 
     Contient le programme principal du TP.
 
