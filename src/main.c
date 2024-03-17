@@ -24,14 +24,14 @@ int main(void){
 
     printf("*********************************************************\n");
     printf("*                      TEST TABLEAU2D                   *\n");
-    printf("*********************************************************\n\n");
+    printf("*********************************************************\n\n");*/
 
-    tester_tableau2d();
+    /*tester_tableau2d();*/
 
     printf("*********************************************************\n");
     printf("*                        TEST NOYAU                     *\n");
     printf("*********************************************************\n\n");
-    tester_noyeau();*/
+    tester_noyeau();
 
     printf("*********************************************************\n");
     printf("*                      TEST IMAGE GRIS                  *\n");
@@ -252,22 +252,22 @@ void tester_tableau2d(void)
 }
 void tester_noyeau(void) {
     printf("PASSE HAUT\n");
-    T_liste *filtre_haut = filtre_passe_haut();
+    t_filtre *filtre_haut = filtre_passe_haut();
     afficher_tableau2D(filtre_haut->data, 3,3);
 
     printf("\n\nPASSE BAS\n");
 
-    T_liste *filtre_bas = filtre_passe_bas();
+    t_filtre *filtre_bas = filtre_passe_bas();
     afficher_tableau2D(filtre_bas->data, 3,3);
 
     printf("\n\nMOYEN\n");
 
-    T_liste *moyenneur = filtre_passe_moyenneur();
+    t_filtre *moyenneur = filtre_passe_moyenneur();
     afficher_tableau2D(moyenneur->data, 3,3);
 
     printf("\n\nLAPLACIEN\n");
 
-    T_liste *laplacien = filtre_laplacien();
+    t_filtre *laplacien = filtre_laplacien();
     afficher_tableau2D(laplacien->data, 3,3);
 
     detruire_filtre(laplacien);
@@ -352,6 +352,51 @@ void tester_image_gris(void) {
         printf("\n \nplaques1 - 15 classes : ");
         afficher_tableau1D(histo,15);
         detruire_tableau1D(&histo);
+    }
+
+    a_ete_charger = lire("C:\\Users\\Hakim\\Documents\\GitHub\\TP2_INF147\\data\\plaque_test_1.bmp", &image, &nb_lignes, &nb_colonnes);
+
+    if(a_ete_charger)
+    {
+        t_filtre *filtre_bas = filtre_passe_bas();
+        filtrer(image, nb_lignes,nb_colonnes,filtre_bas);
+        printf("Enregistrer sous.\n");
+        ecrire("C:\\Users\\Hakim\\Documents\\GitHub\\TP2_INF147\\data\\resultat_passe_bas2.bmp", image, nb_lignes,nb_colonnes);
+        printf("resultat_passe_bas1.bmp\n");
+    }
+
+    a_ete_charger = lire("C:\\Users\\Hakim\\Documents\\GitHub\\TP2_INF147\\data\\plaque_test_2.bmp", &image, &nb_lignes, &nb_colonnes);
+
+    if(a_ete_charger)
+    {
+        t_filtre *filtre_haut = filtre_passe_haut();
+        filtrer(image, nb_lignes,nb_colonnes,filtre_haut);
+        printf("Enregistrer sous.\n");
+        ecrire("C:\\Users\\Hakim\\Documents\\GitHub\\TP2_INF147\\data\\resultat_passe_haut2.bmp", image, nb_lignes,nb_colonnes);
+        printf("resultat_passe_bas1.bmp\n");
+    }
+
+    a_ete_charger = lire("C:\\Users\\Hakim\\Documents\\GitHub\\TP2_INF147\\data\\plaque_test_1.bmp", &image, &nb_lignes, &nb_colonnes);
+    if(a_ete_charger)
+    {
+        t_filtre *filtre_lapl = filtre_laplacien();
+        seuiller(image, nb_lignes,nb_colonnes,0.5);
+        filtrer(image, nb_lignes,nb_colonnes,filtre_lapl);
+        negatif(image, nb_lignes,nb_colonnes);
+        printf("Enregistrer sous.\n");
+        ecrire("C:\\Users\\Hakim\\Documents\\GitHub\\TP2_INF147\\data\\resultat_laplacien1.bmp", image, nb_lignes,nb_colonnes);
+        printf("resultat_laplacien1.bmp\n");
+    }
+
+    a_ete_charger = lire("C:\\Users\\Hakim\\Documents\\GitHub\\TP2_INF147\\data\\plaque_test_2.bmp", &image, &nb_lignes, &nb_colonnes);
+    if(a_ete_charger)
+    {
+        t_filtre *filtre_lapl = filtre_laplacien();
+        seuiller(image, nb_lignes,nb_colonnes,0.25);
+        filtrer(image, nb_lignes,nb_colonnes,filtre_lapl);
+        printf("Enregistrer sous.\n");
+        ecrire("C:\\Users\\Hakim\\Documents\\GitHub\\TP2_INF147\\data\\resultat_laplacien2.bmp", image, nb_lignes,nb_colonnes);
+        printf("resultat_laplacien1.bmp\n");
     }
 
 };
