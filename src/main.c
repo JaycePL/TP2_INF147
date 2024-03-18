@@ -22,6 +22,13 @@
 #include "tableau/tableau1d.h"
 #include "tableau/tableau2d.h"
 
+#define NB_LIGNES_T1_2D     3
+#define NB_LIGNES_T2_2D     3
+#define NB_LIGNES_T3_2D     3
+#define NB_COLONNES_T1_2D   2
+#define NB_COLONNES_T2_2D   4
+#define NB_COLONNES_T3_2D   2
+
 
 void tester_tableau1d(void);
 void tester_tableau2d(void);
@@ -31,8 +38,8 @@ void tester_image_gris(void);
 
 int main(void){
 
-   printf("*********************************************************\n");
-    printf("*                      TEST TABLEAU1D                    *\n");
+    printf("*********************************************************\n");
+    printf("*                      TEST TABLEAU1D                   *\n");
     printf("*********************************************************\n\n");
 
     tester_tableau1d();
@@ -46,11 +53,13 @@ int main(void){
     printf("*********************************************************\n");
     printf("*                        TEST NOYAU                     *\n");
     printf("*********************************************************\n\n");
+
     tester_noyeau();
 
     printf("*********************************************************\n");
     printf("*                      TEST IMAGE GRIS                  *\n");
     printf("*********************************************************\n\n");
+
     tester_image_gris();
 
     return EXIT_SUCCESS;
@@ -98,7 +107,7 @@ void tester_tableau1d(void)
 
     int nb_element_T1 = 5;
     int nb_element_T2 = 3;
-    printf("\n\nFONCTION CREER TABLEAU1D \n");
+    printf("\n\nFONCTION CREER TABLEAU \n");
     printf("\nT1 : ");
     double* T1 = creer_tableau1D(nb_element_T1);
     for (int i = 0; i < nb_element_T1; i++)
@@ -116,43 +125,49 @@ void tester_tableau1d(void)
 
     detruire_tableau1D(&T1);
     detruire_tableau1D(&T2);
-    printf("\n\nFONCTION DETRUIRE TABLEAU1D \n");
-    printf("\n T1 : %p",&*T1);
-    printf("\n T2 : %p",&*T2);
+    printf("\n\nFONCTION DETRUIRE TABLEAU \n");
+    printf("\n T1 : %i",&*T1);
+    printf("\n T2 : %i",&*T2);
     printf("\n\n");
 }
 
 void tester_tableau2d(void)
 {
-    double tableau1[3][2]={{1,2},{4,5},{7,8}};
-    double tableau2[3][4]={{1.1,2.1,3.1,0.25},{4.1,5.1,6.1,0.33},{7.1,8.1,9.1,0.80}};
-    double tableau3[3][2]={{0.25,0.50},{0.75,1.0},{0.33,0.66}};
+    double tableau1[NB_LIGNES_T1_2D][NB_COLONNES_T1_2D]={{1,2},{4,5},{7,8}};
+    double tableau2[NB_LIGNES_T2_2D][NB_COLONNES_T2_2D]={{1.1,2.1,3.1,0.25},{4.1,5.1,6.1,0.33},{7.1,8.1,9.1,0.80}};
+    double tableau3[NB_LIGNES_T3_2D][NB_COLONNES_T3_2D]={{0.25,0.50},{0.75,1.0},{0.33,0.66}};
 
-    double** T1 = creer_tableau2D(3,2);
-    double** T2 = creer_tableau2D(3,4);
-    double** T3 = creer_tableau2D(3,2);
+    double** T1 = creer_tableau2D(NB_LIGNES_T1_2D,NB_COLONNES_T1_2D);
+    double** T2 = creer_tableau2D(NB_LIGNES_T2_2D,NB_COLONNES_T2_2D);
+    double** T3 = creer_tableau2D(NB_LIGNES_T3_2D,NB_COLONNES_T3_2D);
 
-    for(int ligne = 0; ligne < 3; ligne++) {
+    for(int ligne = 0; ligne < NB_LIGNES_T1_2D; ligne++)
+    {
 
-        for (int col = 0; col < 2; col++) {
+        for (int col = 0; col < NB_COLONNES_T1_2D; col++)
+        {
 
             T1[ligne][col] = tableau1[ligne][col];
 
         }
     }
 
-    for(int ligne = 0; ligne < 3; ligne++) {
+    for(int ligne = 0; ligne < NB_LIGNES_T2_2D; ligne++)
+    {
 
-        for (int col = 0; col < 4; col++) {
+        for (int col = 0; col < NB_COLONNES_T2_2D; col++)
+        {
 
             T2[ligne][col] = tableau2[ligne][col];
 
         }
     }
 
-    for(int ligne = 0; ligne < 3; ligne++) {
+    for(int ligne = 0; ligne < NB_LIGNES_T3_2D; ligne++)
+    {
 
-        for (int col = 0; col < 2; col++) {
+        for (int col = 0; col < NB_COLONNES_T3_2D; col++)
+        {
 
             T3[ligne][col] = tableau3[ligne][col];
 
@@ -161,94 +176,99 @@ void tester_tableau2d(void)
 
     printf("\nFONCTION AFFICHER_TABLEAU2D \n");
     printf("\nT1 : \n");
-    afficher_tableau2D(T1,3,2);
+    afficher_tableau2D(T1,NB_LIGNES_T1_2D,NB_COLONNES_T1_2D);
     printf("\nT2 : \n");
-    afficher_tableau2D(T2,3,4);
+    afficher_tableau2D(T2,NB_LIGNES_T2_2D,NB_COLONNES_T2_2D);
     printf("\nT3 : \n");
-    afficher_tableau2D(T3,3,2);
+    afficher_tableau2D(T3,NB_LIGNES_T3_2D,NB_COLONNES_T3_2D);
 
-    detruire_tableau2D(&T1, 3);
-    detruire_tableau2D(&T2, 3);
-    detruire_tableau2D(&T3, 3);
+    detruire_tableau2D(&T1, NB_LIGNES_T1_2D);
+    detruire_tableau2D(&T2, NB_LIGNES_T2_2D);
+    detruire_tableau2D(&T3, NB_LIGNES_T3_2D);
 
-    printf("\nFONCTION AFFICHER_TABLEAU2D \n");
-    printf("\nT1 : %p\n",(void*)T1);
-    printf("\nT2 : %p\n",(void*)T2);
-    printf("\nT3 : %p\n",(void*)T3);
+    T1 = creer_tableau2D(NB_LIGNES_T1_2D,NB_COLONNES_T1_2D);
+    T2 = creer_tableau2D(NB_LIGNES_T2_2D,NB_COLONNES_T2_2D);
+    T3 = creer_tableau2D(NB_LIGNES_T3_2D,NB_COLONNES_T3_2D);
 
-    T1 = creer_tableau2D(3,2);
-    T2 = creer_tableau2D(3,4);
-    T3 = creer_tableau2D(3,2);
+    initialiser_tableau2D(T2,NB_LIGNES_T2_2D,NB_COLONNES_T2_2D,8);
 
-    initialiser_tableau2D(T2,3,4,8);
-
-    printf("\nFONCTION INITIALISER_TABLEAU2D \n");
+    printf("\nFONCTION INITIALISER TABLEAU \n");
     printf("\nT1 : \n");
-    afficher_tableau2D(T2,3,4);
+    afficher_tableau2D(T2,NB_LIGNES_T2_2D,NB_COLONNES_T2_2D);
 
-    for(int ligne = 0; ligne < 3; ligne++) {
+    for(int ligne = 0; ligne < NB_LIGNES_T2_2D; ligne++)
+    {
 
-        for (int col = 0; col < 4; col++) {
+        for (int col = 0; col < NB_COLONNES_T2_2D; col++)
+        {
 
             T2[ligne][col] = tableau2[ligne][col];
 
         }
     }
 
-    double resultat_tableau1 = somme_tableau2D(T1,3,2);
-    double resultat_tableau2 = somme_tableau2D(T2,3,4);
+    double resultat_tableau1 = somme_tableau2D(T1,NB_LIGNES_T1_2D,NB_COLONNES_T1_2D);
+    double resultat_tableau2 = somme_tableau2D(T2,NB_LIGNES_T2_2D,NB_COLONNES_T2_2D);
 
-    printf("\n\nFONCTION SOMME_TABLEAU2D \n");
+    printf("\n\nFONCTION SOMME \n");
     printf("\nT1 : %lf",resultat_tableau1);
     printf("\nT1 : %lf",resultat_tableau2);
 
-    produit_par_scalaire2D(T1,3,2,0.1);
-    produit_par_scalaire2D(T2,3,4,10);
+    produit_par_scalaire2D(T1,NB_LIGNES_T1_2D,NB_COLONNES_T1_2D,0.1);
+    produit_par_scalaire2D(T2,NB_LIGNES_T2_2D,NB_COLONNES_T2_2D,10);
 
-    printf("\n\nFONCTION PRODUIT_PAR_SCALAIRE2D \n");
+    printf("\n\nFONCTION PRODUIT PAR SCALAIRE \n");
     printf("\nT1 : \n");
-    afficher_tableau2D(T1,3,2);
+    afficher_tableau2D(T1,NB_LIGNES_T1_2D,NB_COLONNES_T1_2D);
     printf("\nT2 : \n");
-    afficher_tableau2D(T2,3,4);
+    afficher_tableau2D(T2,NB_LIGNES_T2_2D,NB_COLONNES_T2_2D);
 
-    for(int ligne = 0; ligne < 3; ligne++) {
+    for(int ligne = 0; ligne < NB_LIGNES_T1_2D; ligne++)
+    {
 
-        for (int col = 0; col < 2; col++) {
+        for (int col = 0; col < NB_COLONNES_T1_2D; col++)
+        {
 
             T1[ligne][col] = tableau1[ligne][col];
 
         }
     }
 
-    for(int ligne = 0; ligne < 3; ligne++) {
+    for(int ligne = 0; ligne < NB_LIGNES_T2_2D; ligne++)
+    {
 
-        for (int col = 0; col < 4; col++) {
+        for (int col = 0; col < NB_COLONNES_T2_2D; col++)
+        {
 
             T2[ligne][col] = tableau2[ligne][col];
 
         }
     }
 
-    printf("\n\nFONCTION PUISSANCE_TABLEAU2D \n");
+    printf("\n\nFONCTION PUISSANCE \n");
     printf("\nT1 : \n");
-    puissance_tableau2D(T1,3,2,2);
-    afficher_tableau2D(T1,3,2);
+    puissance_tableau2D(T1,NB_LIGNES_T1_2D,NB_COLONNES_T1_2D,2);
+    afficher_tableau2D(T1,NB_LIGNES_T1_2D,NB_COLONNES_T1_2D);
     printf("\nT2 : \n");
-    puissance_tableau2D(T2,3,4,0.5);
-    afficher_tableau2D(T2,3,4);
+    puissance_tableau2D(T2,NB_LIGNES_T2_2D,NB_COLONNES_T2_2D,0.5);
+    afficher_tableau2D(T2,NB_LIGNES_T2_2D,NB_COLONNES_T2_2D);
 
-    for(int ligne = 0; ligne < 3; ligne++) {
+    for(int ligne = 0; ligne < NB_LIGNES_T1_2D; ligne++)
+    {
 
-        for (int col = 0; col < 2; col++) {
+        for (int col = 0; col < NB_COLONNES_T1_2D; col++)
+        {
 
             T1[ligne][col] = tableau1[ligne][col];
 
         }
     }
 
-    for(int ligne = 0; ligne < 3; ligne++) {
+    for(int ligne = 0; ligne < NB_LIGNES_T2_2D; ligne++)
+    {
 
-        for (int col = 0; col < 4; col++) {
+        for (int col = 0; col < NB_COLONNES_T2_2D; col++)
+        {
 
             T2[ligne][col] = tableau2[ligne][col];
 
@@ -257,14 +277,30 @@ void tester_tableau2d(void)
 
 
 
-    printf("\n\nFONCTION PRODUIT_TABLEAU2D \n");
+    printf("\n\nFONCTION PRODUIT \n");
     double** T4 = creer_tableau2D(3,2);
-    produit_tableau2D(T1,T2,3,2,&T4);
+    produit_tableau2D(T1,T2,NB_LIGNES_T1_2D,NB_COLONNES_T1_2D,&T4);
     printf("\nT4 : \n");
-    afficher_tableau2D(T4,3,2);
+    afficher_tableau2D(T4,NB_LIGNES_T1_2D,NB_COLONNES_T1_2D);
 
-    detruire_tableau2D(&T4, 3);
+    /*printf("\n\nFONCTION SOMMES DES COLONNES");
+    double* tableau_resultat = creer_tableau1D()
+
+    printf("\n\nFONCTION SOMMES DES LIGNES");
+
+
+    printf("\n\nFONCTION SOUS TABLEAU");
+
+    detruire_tableau2D(&T1, NB_LIGNES_T1_2D);
+    detruire_tableau2D(&T2, NB_LIGNES_T2_2D);
+    detruire_tableau2D(&T3, NB_LIGNES_T3_2D);
+
+    printf("\nFONCTION DETRUIRE TABLEAU \n");
+    printf("\nT1 : %i\n",(void*)T1);
+    printf("\nT2 : %i\n",(void*)T2);
+    printf("\nT3 : %i\n",(void*)T3);*/
 }
+
 void tester_noyeau(void) {
     printf("PASSE HAUT\n");
     t_filtre *filtre_haut = filtre_passe_haut();

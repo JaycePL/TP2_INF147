@@ -26,6 +26,7 @@
 #include <math.h>
 
 #include "tableau2d.h"
+#include "tableau1d.h"
 
 /****************************************************************************************
 *                               DEFINTION DES CONSTANTES                                *
@@ -218,3 +219,46 @@ void produit_tableau2D(double** tableau1, double** tableau2, int nb_ligne, int n
     }
 
 }
+
+void somme_des_colonnes(double** tableau_entree, int nb_ligne, int nb_colonne, double** tableau_resultat)
+{
+
+    for(int j = 0; j < nb_colonne; j++)
+    {
+        double somme_colonnes = 0;
+
+        for(int i = 0; i < nb_ligne; i++)
+        {
+            somme_colonnes += tableau_entree[i][j];
+        }
+
+        *tableau_resultat[j] = somme_colonnes;
+    }
+}
+
+void sommes_des_lignes(double** tableau_entree, int nb_ligne, int nb_colonne, double** tableau_resultat)
+{
+    for(int i = 0; i < nb_ligne; i++)
+    {
+        double somme_lignes = 0;
+
+        for(int j = 0; j < nb_colonne; j++)
+        {
+            somme_lignes += tableau_entree[i][j];
+        }
+
+        *tableau_resultat[i] = somme_lignes;
+    }
+}
+
+void sous_tableau(double** tableau_entree, int nb_ligne, int nb_colonne, double*** tableau_resultat, int no_ligne, int no_colonne, int taille_ligne, int taille_colonne)
+{
+    for(int i = no_ligne; i <= taille_ligne; i++)
+    {
+        for(int j = no_colonne; j <= taille_colonne; j++)
+        {
+            *tableau_resultat[i][j] = tableau_entree[i][j];
+        }
+    }
+}
+
