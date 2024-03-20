@@ -311,32 +311,34 @@ void tester_tableau2d(void)
     printf("\n\nFONCTION PRODUIT \n");
     double** T4 = creer_tableau2D(3,2);
     produit_tableau2D(T1,T3,NB_LIGNES_T1_2D,NB_COLONNES_T1_2D,&T4);
-    printf("\nT1 : \n");
-    afficher_tableau2D(&T4,NB_LIGNES_T1_2D,NB_COLONNES_T1_2D);
+    printf("\nT4 : \n");
+    afficher_tableau2D(T4,NB_LIGNES_T1_2D,NB_COLONNES_T1_2D);
 
-    //detruire_tableau2D()
+    detruire_tableau2D(&T4,NB_COLONNES_T1_2D);
 
     printf("\n\nFONCTION SOMMES DES COLONNES");
-    double* T5 = creer_tableau1D(4);
+    double* T5 = creer_tableau1D(NB_COLONNES_T2_2D);
     sommes_des_colonnes(T2,NB_LIGNES_T2_2D,NB_COLONNES_T2_2D,T5);
-    printf("\nT1 : \n");
-    afficher_tableau1D(T5,4);
+    printf("\nT5 : \n");
+    afficher_tableau1D(T5,NB_COLONNES_T2_2D);
 
-
+    detruire_tableau1D(&T5);
 
     printf("\n\nFONCTION SOMMES DES LIGNES");
-    double* T6 = creer_tableau1D(4);
-    sommes_des_lignes(T2,NB_LIGNES_T2_2D,NB_COLONNES_T2_2D,T6);
+    T5 = creer_tableau1D(NB_COLONNES_T2_2D);
+    sommes_des_lignes(T2,NB_LIGNES_T2_2D,NB_COLONNES_T2_2D,T5);
     printf("\nT1 : \n");
-    afficher_tableau1D(T6,4);
+    afficher_tableau1D(T5,NB_COLONNES_T2_2D);
 
+    detruire_tableau1D(&T5);
 
     printf("\n\nFONCTION SOUS TABLEAU\n");
-    double** T7 = creer_tableau2D(2,3);
-    sous_tableau(T2,NB_LIGNES_T2_2D,NB_COLONNES_T2_2D,&T7,1,0,2,3);
+    T4 = creer_tableau2D(2,3);
+    sous_tableau(T2,NB_LIGNES_T2_2D,NB_COLONNES_T2_2D,T4,1,0,2,3);
     printf("\nT1 : \n");
-    afficher_tableau2D(T7,2,3);
+    afficher_tableau2D(T4,2,3);
 
+    detruire_tableau2D(&T4,NB_COLONNES_T1_2D);
 
     detruire_tableau2D(&T1, NB_LIGNES_T1_2D);
     detruire_tableau2D(&T2, NB_LIGNES_T2_2D);
