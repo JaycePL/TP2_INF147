@@ -105,10 +105,13 @@ void tester_tableau1d(void)
     printf("\n\nFONCTION PRODUIT \n");
     printf("T1 : ");
     produit_tableau1D(tableau1,5,5);
+    afficher_tableau1D(tableau1,5);
     printf("\nT2 : ");
     produit_tableau1D(tableau2,5,0.1);
+    afficher_tableau1D(tableau2,5);
     printf("\nT3 : ");
     produit_tableau1D(tableau3,3,0);
+    afficher_tableau1D(tableau3,3);
 
     printf("\n\n\nFONCTION PRODUIT SCALAIRE \n");
     double produit_scalaire_tableau4_et_5 = produit_scalaire1D(tableau4,tableau5,5);
@@ -332,6 +335,17 @@ void tester_tableau2d(void)
 
     detruire_tableau1D(&T5);
 
+
+    for(int ligne = 0; ligne < NB_LIGNES_T2_2D; ligne++)
+    {
+
+        for (int col = 0; col < NB_COLONNES_T2_2D; col++)
+        {
+
+            T2[ligne][col] = tableau2[ligne][col];
+
+        }
+    }
     printf("\n\nFONCTION SOUS TABLEAU\n");
     T4 = creer_tableau2D(2,3);
     sous_tableau(T2,NB_LIGNES_T2_2D,NB_COLONNES_T2_2D,T4,1,0,2,3);
@@ -345,8 +359,8 @@ void tester_tableau2d(void)
     detruire_tableau2D(&T3, NB_LIGNES_T3_2D);
 
     printf("\nFONCTION DETRUIRE TABLEAU \n");
-    printf("\nT1 : %i\n",(void*)T1);
-    printf("\nT2 : %i\n",(void*)T2);
+    printf("\nT1 : %i",(void*)T1);
+    printf("\nT2 : %i",(void*)T2);
     printf("\nT3 : %i\n",(void*)T3);
 
 }

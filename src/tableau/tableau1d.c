@@ -85,8 +85,7 @@ void produit_tableau1D(double tableau[],int nb_element,double valeur)
     for(i = 0; i < nb_element; i++)
     {
         produit = tableau[i] * valeur;
-
-        printf("%0.3lf   ",produit);
+        tableau[i] = produit;
     }
 }
 
