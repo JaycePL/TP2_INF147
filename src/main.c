@@ -207,17 +207,6 @@ void tester_tableau2d(void)
     printf("\nT1 : \n");
     afficher_tableau2D(T2,NB_LIGNES_T2_2D,NB_COLONNES_T2_2D);
 
-    for(int ligne = 0; ligne < NB_LIGNES_T2_2D; ligne++)
-    {
-
-        for (int col = 0; col < NB_COLONNES_T2_2D; col++)
-        {
-
-            T2[ligne][col] = tableau2[ligne][col];
-
-        }
-    }
-
     for(int ligne = 0; ligne < NB_LIGNES_T1_2D; ligne++)
     {
 
@@ -225,6 +214,17 @@ void tester_tableau2d(void)
         {
 
             T1[ligne][col] = tableau1[ligne][col];
+
+        }
+    }
+
+    for(int ligne = 0; ligne < NB_LIGNES_T2_2D; ligne++)
+    {
+
+        for (int col = 0; col < NB_COLONNES_T2_2D; col++)
+        {
+
+            T2[ligne][col] = tableau2[ligne][col];
 
         }
     }
@@ -343,8 +343,8 @@ void tester_tableau2d(void)
     detruire_tableau2D(&T3, NB_LIGNES_T3_2D);
 
     printf("\nFONCTION DETRUIRE TABLEAU \n");
-    printf("\nT1 : %i",(void*)T1);
-    printf("\nT2 : %i",(void*)T2);
+    printf("\nT1 : %i\n",(void*)T1);
+    printf("\nT2 : %i\n",(void*)T2);
     printf("\nT3 : %i\n",(void*)T3);
 */
 }
@@ -438,7 +438,7 @@ void tester_image_gris(void) {
     if(a_ete_charger)
     {
         double *histo = histogramme(image, nb_lignes,nb_colonnes,10);
-        printf("plaques1 - 10 classes : ");
+        printf("plaques1 - 10 classes : \n");
         afficher_tableau1D(histo,10);
         detruire_tableau1D(&histo);
     }
@@ -448,7 +448,7 @@ void tester_image_gris(void) {
     if(a_ete_charger)
     {
         double *histo = histogramme(image, nb_lignes,nb_colonnes,15);
-        printf("\n \nplaques1 - 15 classes : ");
+        printf("\n \nplaques1 - 15 classes : \n");
         afficher_tableau1D(histo,15);
         detruire_tableau1D(&histo);
     }
