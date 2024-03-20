@@ -231,7 +231,7 @@ void produit_tableau2D(double** tableau1, double** tableau2, int nb_ligne, int n
 //  Cette fonction calcule la somme de chacune des colonnes d'un tableau 2D et accumule les résultats dans un tableau
 //    dynamique 1D.
 //
-void sommes_des_colonnes(double** tableau_entree, int nb_ligne, int nb_colonne, double** tableau_resultat)
+void sommes_des_colonnes(double** tableau_entree, int nb_ligne, int nb_colonne, double* tableau_resultat)
 {
     // On parcourt chaque colonne du tableau.
     for(int j = 0; j < nb_colonne; j++)
@@ -246,7 +246,7 @@ void sommes_des_colonnes(double** tableau_entree, int nb_ligne, int nb_colonne, 
         }
 
         //On entre dans le tableau dynamique 1D, le résultat des sommes des colonnes du tableau 2D reçu.
-        *tableau_resultat[j] = sommes_colonnes;
+        tableau_resultat[j] = sommes_colonnes;
     }
 }
 
@@ -255,7 +255,7 @@ void sommes_des_colonnes(double** tableau_entree, int nb_ligne, int nb_colonne, 
 //  Cette fonction calcule la somme de chacune des lignes d'un tableau 2D et accumule les résultats dans un tableau
 //    dynamique 1D.
 //
-void sommes_des_lignes(double** tableau_entree, int nb_ligne, int nb_colonne, double** tableau_resultat)
+void sommes_des_lignes(double** tableau_entree, int nb_ligne, int nb_colonne, double* tableau_resultat)
 {
     // On parcourt chaque ligne des tableaux.
     for(int i = 0; i < nb_ligne; i++)
@@ -270,7 +270,7 @@ void sommes_des_lignes(double** tableau_entree, int nb_ligne, int nb_colonne, do
         }
 
         //On entre dans le tableau dynamique 1D, le résultat des sommes des lignes du tableau 2D reçu.
-        *tableau_resultat[i] = somme_lignes;
+        tableau_resultat[i] = somme_lignes;
     }
 }
 
@@ -279,16 +279,16 @@ void sommes_des_lignes(double** tableau_entree, int nb_ligne, int nb_colonne, do
 //  Cette fonction crée un tableau dynamique avec la bonne taille reçu en paramètre et parcours les cases du tableau 2D
 //     à partir du numéro de ligne et de colonne reçu, puis copiez dans le sous-tableau le bon nombre d'élément.
 //
-void sous_tableau(double** tableau_entree, int nb_ligne, int nb_colonne, double*** tableau_resultat, int no_ligne, int no_colonne, int taille_ligne, int taille_colonne)
+void sous_tableau(double** tableau_entree, int nb_ligne, int nb_colonne, double** tableau_resultat, int no_ligne, int no_colonne, int taille_ligne, int taille_colonne)
 {
     // On parcourt chaque ligne des tableaux.
-    for(int i = no_ligne; i <= taille_ligne; i++)
+    for(int i = no_ligne; i < taille_ligne; i++)
     {
         // On parcourt chaque colonne des tableaux.
-        for(int j = no_colonne; j <= taille_colonne; j++)
+        for(int j = no_colonne; j < taille_colonne; j++)
         {
             //On copie dans le sous tableau les éléments qu'on veut.
-            *tableau_resultat[i][j] = tableau_entree[i][j];
+            tableau_resultat[i][j] = tableau_entree[i][j];
         }
     }
 }

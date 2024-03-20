@@ -201,7 +201,7 @@ void produit_tableau2D(double** tableau1, double** tableau2, int nb_ligne, int n
     RETOUR :
         - Aucun
 */
-void sommes_des_colonnes(double** tableau_entree, int nb_ligne, int nb_colonne, double** tableau_resultat);
+void sommes_des_colonnes(double** tableau_entree, int nb_ligne, int nb_colonne, double* tableau_resultat);
 
 
 
@@ -220,7 +220,7 @@ void sommes_des_colonnes(double** tableau_entree, int nb_ligne, int nb_colonne, 
     RETOUR :
         - Aucun
 */
-void sommes_des_lignes(double** tableau_entree, int nb_ligne, int nb_colonne, double** tableau_resultat);
+void sommes_des_lignes(double** tableau_entree, int nb_ligne, int nb_colonne, double* tableau_resultat);
 
 
 
@@ -243,4 +243,4 @@ void sommes_des_lignes(double** tableau_entree, int nb_ligne, int nb_colonne, do
     RETOUR :
         - Aucun
 */
-void sous_tableau(double** tableau_entree, int nb_ligne, int nb_colonne, double*** tableau_resultat, int no_ligne, int no_colonne, int taille_ligne, int taille_colonne);
+void sous_tableau(double** tableau_entree, int nb_ligne, int nb_colonne, double** tableau_resultat, int no_ligne, int no_colonne, int taille_ligne, int taille_colonne);
