@@ -201,7 +201,7 @@ void puissance_tableau2D(double** tableau, int nb_ligne, int nb_colonne, double 
 
 
 //
-//  Cette fonction multiplie deux tableaux 2D case par case et inscrit les
+//  Cette fonction multiplie les cases correspondantes de deux tableaux 2D et inscrit les
 //  résultats dans un nouveau tableau 2D.
 //
 void produit_tableau2D(double** tableau1, double** tableau2, int nb_ligne, int nb_colonne, double*** resultat)
@@ -220,22 +220,30 @@ void produit_tableau2D(double** tableau1, double** tableau2, int nb_ligne, int n
 
 }
 
-void somme_des_colonnes(double** tableau_entree, int nb_ligne, int nb_colonne, double** tableau_resultat)
-{
 
+//
+//  Cette fonction
+//
+void sommes_des_colonnes(double** tableau_entree, int nb_ligne, int nb_colonne, double** tableau_resultat)
+{
+    // On parcourt chaque colonne du tableau.
     for(int j = 0; j < nb_colonne; j++)
     {
-        double somme_colonnes = 0;
+        double sommes_colonnes = 0;
 
         for(int i = 0; i < nb_ligne; i++)
         {
-            somme_colonnes += tableau_entree[i][j];
+            sommes_colonnes += tableau_entree[i][j];
         }
 
-        *tableau_resultat[j] = somme_colonnes;
+        *tableau_resultat[j] = sommes_colonnes;
     }
 }
 
+
+//
+//  Cette fonction
+//
 void sommes_des_lignes(double** tableau_entree, int nb_ligne, int nb_colonne, double** tableau_resultat)
 {
     for(int i = 0; i < nb_ligne; i++)
@@ -251,6 +259,10 @@ void sommes_des_lignes(double** tableau_entree, int nb_ligne, int nb_colonne, do
     }
 }
 
+
+//
+//  Cette fonction
+//
 void sous_tableau(double** tableau_entree, int nb_ligne, int nb_colonne, double*** tableau_resultat, int no_ligne, int no_colonne, int taille_ligne, int taille_colonne)
 {
     for(int i = no_ligne; i <= taille_ligne; i++)

@@ -18,6 +18,11 @@
       - puissance_tableau2D    : Applique une puissance à chacune des cases du tableau 2D.
       - produit_tableau2D      : Multiplie deux tableaux 2D case par case et inscrit les
                                  résultats dans un nouveau tableau 2D.
+      - sommes_des_colonnes    : Fait la somme des colonnes d'un tableau 2D et accumule
+                                 les résultats dans un tableau dynamique 1D.
+      - sommes_des_lignes      : Fait la somme des lignes d'un tableau 2D et accumule
+                                 les résultats dans un tableau dynamique 1D.
+      - sous_tableau           :
 
 *****************************************************************************************/
 
@@ -123,7 +128,7 @@ double somme_tableau2D(double** tableau, int nb_ligne, int nb_colonne);
 /*
     PRODUIT_PAR_SCALAIRE2D
 
-    Cette fonction parcours toutes les cases du tableau reçu et multiplie chacunes
+    Cette fonction parcours toutes les cases du tableau reçu et multiplie chacune
     des cases par le facteur multiplicatif reçu.
 
     PARAMÈTRES :
@@ -143,7 +148,7 @@ void produit_par_scalaire2D(double** tableau, int nb_ligne, int nb_colonne, doub
     PUISSANCE_TABLEAU2D
 
     Cette fonction parcours toutes les cases du tableau reçu et applique la puissance reçue
-    à chacunes des cases du tableau.
+    à chacune des cases du tableau.
 
     PARAMÈTRES :
         - tableau      : Le tableau dynamique 2D à modifier.
@@ -177,8 +182,62 @@ void puissance_tableau2D(double** tableau, int nb_ligne, int nb_colonne, double 
 */
 void produit_tableau2D(double** tableau1, double** tableau2, int nb_ligne, int nb_colonne, double*** resultat);
 
-void somme_des_colonnes(double** tableau_entree, int nb_ligne, int nb_colonne, double** tableau_resultat);
 
+
+/*
+    SOMMES_DES_COLONNES
+
+    Cette fonction calcule la somme de chacune des colonnes d'un tableau 2D et accumule les résultats dans un tableau
+    dynamique 1D.
+
+    PARAMÈTRES :
+        - tableau_entree      : Le tableau 2D qui sera analysé.
+        - nb_ligne            : Le nombre de lignes qui correspond au tableaux 2D.
+        - nb_colonne          : Le nombre de colonnes qui correspond au tableaux 2D.
+        - tableau_resultat    : Un pointeur vers un tableau 1D qui recevra les résultats de ce calcul.
+
+    RETOUR :
+        - Aucun
+*/
+void sommes_des_colonnes(double** tableau_entree, int nb_ligne, int nb_colonne, double** tableau_resultat);
+
+
+
+/*
+    SOMMES_DES_LIGNES
+
+    Cette fonction calcule la somme de chacune des lignes d'un tableau 2D et accumule les résultats dans un tableau
+    dynamique 1D.
+
+    PARAMÈTRES :
+        - tableau_entree      : Le tableau 2D qui sera analysé.
+        - nb_ligne            : Le nombre de lignes qui correspond au tableaux 2D.
+        - nb_colonne          : Le nombre de colonnes qui correspond au tableaux 2D.
+        - tableau_resultat    : Un pointeur vers un tableau 1D qui recevra les résultats de ce calcul.
+
+    RETOUR :
+        - Aucun
+*/
 void sommes_des_lignes(double** tableau_entree, int nb_ligne, int nb_colonne, double** tableau_resultat);
 
+
+
+/*
+    SOUS_TABLEAU
+
+    Cette fonction
+
+    PARAMÈTRES :
+        - tableau_entree      : Le tableau 2D qui sera analysé.
+        - nb_ligne            : Le nombre de lignes qui correspond au tableaux 2D à analyser.
+        - nb_colonne          : Le nombre de colonnes qui correspond tableaux 2D à analyser.
+        - tableau_resultat    : Un pointeur vers un tableau 2D qui recevra les résultats de ce calcul.
+        - no_ligne            : Le numéro de ligne à partir de laquelle la section du sous-tableau sera extraite.
+        - no_colonne          : Le numéro de colonne à partir de laquelle la section du sous-tableau sera extraite.
+        - taille_ligne        : Le nombre de ligne que le résultat devra avoir.
+        - taille_colonne      : Le nombre de colonne que le résultat devra avoir.
+
+    RETOUR :
+        - Aucun
+*/
 void sous_tableau(double** tableau_entree, int nb_ligne, int nb_colonne, double*** tableau_resultat, int no_ligne, int no_colonne, int taille_ligne, int taille_colonne);

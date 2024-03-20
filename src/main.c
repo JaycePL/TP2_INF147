@@ -22,12 +22,23 @@
 #include "tableau/tableau1d.h"
 #include "tableau/tableau2d.h"
 
+#define TAILLE_TABLEAU1D    5
+#define TABLEAU1D_1         {1, 2, 3, 4, 5}
+#define TABLEAU1D_2         {1.1, 2.5, 3.0, 4.25, 5.123}
+#define TABLEAU1D_3         {1.0, 1.0, 1.0, 1.0, 1.0}
+#define TABLEAU1D_4         {1, 2, 3, 4, 5}
+#define TABLEAU1D_5         {1.5, 2.0, 1.25, 0.5, 0}
+#define TABLEAU1D_6         {0, 0, 0, 0, 0}
+
 #define NB_LIGNES_T1_2D     3
 #define NB_LIGNES_T2_2D     3
 #define NB_LIGNES_T3_2D     3
 #define NB_COLONNES_T1_2D   2
 #define NB_COLONNES_T2_2D   4
 #define NB_COLONNES_T3_2D   2
+#define TABLEAU2D_1         {{1,2},{4,5},{7,8}}
+#define TABLEAU2D_2         {{1.1,2.1,3.1,0.25},{4.1,5.1,6.1,0.33},{7.1,8.1,9.1,0.80}}
+#define TABLEAU2D_3         {{0.25,0.50},{0.75,1.0},{0.33,0.66}}
 
 
 void tester_tableau1d(void);
@@ -67,12 +78,12 @@ int main(void){
 
 void tester_tableau1d(void)
 {
-    double tableau1[5] = {1, 2, 3, 4, 5};
-    double tableau2[5] = {1.1, 2.5, 3.0, 4.25, 5.123 };
-    double tableau3[5] = {1.0, 1.0, 1.0, 1.0, 1.0};
-    double tableau4[5] = {1, 2, 3, 4, 5};
-    double tableau5[5] = {1.5, 2.0, 1.25, 0.5, 0};
-    double tableau6[5] = {0, 0, 0, 0, 0};
+    double tableau1[TAILLE_TABLEAU1D] = TABLEAU1D_1;
+    double tableau2[TAILLE_TABLEAU1D] = TABLEAU1D_2;
+    double tableau3[TAILLE_TABLEAU1D] = TABLEAU1D_3;
+    double tableau4[TAILLE_TABLEAU1D] = TABLEAU1D_4;
+    double tableau5[TAILLE_TABLEAU1D] = TABLEAU1D_5;
+    double tableau6[TAILLE_TABLEAU1D] = TABLEAU1D_6;
 
 
     printf("FONCTION AFFICHER_TABLEAU1D \n");
@@ -113,14 +124,14 @@ void tester_tableau1d(void)
     for (int i = 0; i < nb_element_T1; i++)
     {
         double cellule = T1[i];
-        printf("%lf  ",cellule);
+        printf("%0.3lf  ",cellule);
     }
     printf("\nT2 : ");
     double* T2 = creer_tableau1D(nb_element_T2);
     for (int i = 0; i < nb_element_T2; i++)
     {
         double cellule = T2[i];
-        printf("%lf  ",cellule);
+        printf("%0.3lf  ",cellule);
     }
 
     detruire_tableau1D(&T1);
@@ -133,9 +144,9 @@ void tester_tableau1d(void)
 
 void tester_tableau2d(void)
 {
-    double tableau1[NB_LIGNES_T1_2D][NB_COLONNES_T1_2D]={{1,2},{4,5},{7,8}};
-    double tableau2[NB_LIGNES_T2_2D][NB_COLONNES_T2_2D]={{1.1,2.1,3.1,0.25},{4.1,5.1,6.1,0.33},{7.1,8.1,9.1,0.80}};
-    double tableau3[NB_LIGNES_T3_2D][NB_COLONNES_T3_2D]={{0.25,0.50},{0.75,1.0},{0.33,0.66}};
+    double tableau1[NB_LIGNES_T1_2D][NB_COLONNES_T1_2D]= TABLEAU2D_1;
+    double tableau2[NB_LIGNES_T2_2D][NB_COLONNES_T2_2D]= TABLEAU2D_2;
+    double tableau3[NB_LIGNES_T3_2D][NB_COLONNES_T3_2D]= TABLEAU2D_3;
 
     double** T1 = creer_tableau2D(NB_LIGNES_T1_2D,NB_COLONNES_T1_2D);
     double** T2 = creer_tableau2D(NB_LIGNES_T2_2D,NB_COLONNES_T2_2D);
@@ -211,8 +222,8 @@ void tester_tableau2d(void)
     double resultat_tableau2 = somme_tableau2D(T2,NB_LIGNES_T2_2D,NB_COLONNES_T2_2D);
 
     printf("\n\nFONCTION SOMME \n");
-    printf("\nT1 : %lf",resultat_tableau1);
-    printf("\nT1 : %lf",resultat_tableau2);
+    printf("\nT1 : %0.3lf",resultat_tableau1);
+    printf("\nT2 : %0.3lf",resultat_tableau2);
 
     produit_par_scalaire2D(T1,NB_LIGNES_T1_2D,NB_COLONNES_T1_2D,0.1);
     produit_par_scalaire2D(T2,NB_LIGNES_T2_2D,NB_COLONNES_T2_2D,10);
@@ -281,7 +292,7 @@ void tester_tableau2d(void)
     double** T4 = creer_tableau2D(3,2);
     produit_tableau2D(T1,T2,NB_LIGNES_T1_2D,NB_COLONNES_T1_2D,&T4);
     printf("\nT4 : \n");
-    afficher_tableau2D(T4,NB_LIGNES_T1_2D,NB_COLONNES_T1_2D);
+    afficher_tableau2D(T1,NB_LIGNES_T1_2D,NB_COLONNES_T1_2D);
 
     /*printf("\n\nFONCTION SOMMES DES COLONNES");
     double* tableau_resultat = creer_tableau1D()
