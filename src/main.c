@@ -1,7 +1,7 @@
 /****************************************************************************************
 *                                      MAIN.C                                          *
 ****************************************************************************************
-    Auteurs : Cédric Benoit, Hakim-Anis Hamani et Jasmin Papierz-Lambert
+    Auteurs : Cï¿½dric Benoit, Hakim-Anis Hamani et Jasmin Papierz-Lambert
     Date    : 17 mars 2024
 
     Contient le programme principal du TP.
@@ -297,12 +297,22 @@ void tester_tableau2d(void)
         }
     }
 
+    for(int ligne = 0; ligne < NB_LIGNES_T3_2D; ligne++)
+    {
+
+        for (int col = 0; col < NB_COLONNES_T3_2D; col++)
+        {
+
+            T3[ligne][col] = tableau3[ligne][col];
+
+        }
+    }
 
     printf("\n\nFONCTION PRODUIT \n");
     double** T4 = creer_tableau2D(3,2);
-    produit_tableau2D(T1,T2,NB_LIGNES_T1_2D,NB_COLONNES_T1_2D,&T4);
+    produit_tableau2D(T1,T3,NB_LIGNES_T1_2D,NB_COLONNES_T1_2D,&T4);
     printf("\nT1 : \n");
-    afficher_tableau2D(T1,NB_LIGNES_T1_2D,NB_COLONNES_T1_2D);
+    afficher_tableau2D(&T4,NB_LIGNES_T1_2D,NB_COLONNES_T1_2D);
 
     //detruire_tableau2D()
 
