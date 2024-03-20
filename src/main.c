@@ -1,6 +1,6 @@
 /****************************************************************************************
-/*                                      MAIN.C                                          *
-/****************************************************************************************
+*                                      MAIN.C                                          *
+****************************************************************************************
     Auteurs : Cédric Benoit, Hakim-Anis Hamani et Jasmin Papierz-Lambert
     Date    : 17 mars 2024
 
@@ -137,8 +137,8 @@ void tester_tableau1d(void)
     detruire_tableau1D(&T1);
     detruire_tableau1D(&T2);
     printf("\n\nFONCTION DETRUIRE TABLEAU \n");
-    printf("\n T1 : %i",&*T1);
-    printf("\n T2 : %i",&*T2);
+    printf("\n T1 : %0.lf",&*T1);
+    printf("\n T2 : %0.lf",&*T2);
     printf("\n\n");
 }
 
@@ -218,6 +218,17 @@ void tester_tableau2d(void)
         }
     }
 
+    for(int ligne = 0; ligne < NB_LIGNES_T1_2D; ligne++)
+    {
+
+        for (int col = 0; col < NB_COLONNES_T1_2D; col++)
+        {
+
+            T1[ligne][col] = tableau1[ligne][col];
+
+        }
+    }
+
     double resultat_tableau1 = somme_tableau2D(T1,NB_LIGNES_T1_2D,NB_COLONNES_T1_2D);
     double resultat_tableau2 = somme_tableau2D(T2,NB_LIGNES_T2_2D,NB_COLONNES_T2_2D);
 
@@ -287,29 +298,45 @@ void tester_tableau2d(void)
     }
 
 
-
     printf("\n\nFONCTION PRODUIT \n");
     double** T4 = creer_tableau2D(3,2);
     produit_tableau2D(T1,T2,NB_LIGNES_T1_2D,NB_COLONNES_T1_2D,&T4);
-    printf("\nT4 : \n");
+    printf("\nT1 : \n");
     afficher_tableau2D(T1,NB_LIGNES_T1_2D,NB_COLONNES_T1_2D);
 
-    /*printf("\n\nFONCTION SOMMES DES COLONNES");
-    double* tableau_resultat = creer_tableau1D()
+    //detruire_tableau2D()
+
+    printf("\n\nFONCTION SOMMES DES COLONNES");
+    double* T5 = creer_tableau1D(4);
+    sommes_des_colonnes(T2,NB_LIGNES_T2_2D,NB_COLONNES_T2_2D,&T5);
+    printf("\nT1 : \n");
+    afficher_tableau1D(T5,4);
+
+
 
     printf("\n\nFONCTION SOMMES DES LIGNES");
+    double* T6 = creer_tableau1D(4);
+    sommes_des_lignes(T2,NB_LIGNES_T2_2D,NB_COLONNES_T2_2D,&T6);
+    printf("\nT1 : \n");
+    afficher_tableau1D(T6,4);
 
 
-    printf("\n\nFONCTION SOUS TABLEAU");
+    printf("\n\nFONCTION SOUS TABLEAU\n");
+    double** T7 = creer_tableau2D(2,3);
+    sous_tableau(T2,NB_LIGNES_T2_2D,NB_COLONNES_T2_2D,&T7,1,0,2,3);
+    printf("\nT1 : \n");
+    afficher_tableau2D(T7,2,3);
 
+/*
     detruire_tableau2D(&T1, NB_LIGNES_T1_2D);
     detruire_tableau2D(&T2, NB_LIGNES_T2_2D);
     detruire_tableau2D(&T3, NB_LIGNES_T3_2D);
 
     printf("\nFONCTION DETRUIRE TABLEAU \n");
-    printf("\nT1 : %i\n",(void*)T1);
-    printf("\nT2 : %i\n",(void*)T2);
-    printf("\nT3 : %i\n",(void*)T3);*/
+    printf("\nT1 : %i",(void*)T1);
+    printf("\nT2 : %i",(void*)T2);
+    printf("\nT3 : %i\n",(void*)T3);
+*/
 }
 
 void tester_noyeau(void) {

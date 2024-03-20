@@ -18,6 +18,13 @@
       - puissance_tableau2D    : Applique une puissance à chacune des cases du tableau 2D.
       - produit_tableau2D      : Multiplie deux tableaux 2D case par case et inscrit les
                                  résultats dans un nouveau tableau 2D.
+      - sommes_des_colonnes    : Fait la somme des colonnes d'un tableau 2D et accumule
+                                 les résultats dans un tableau dynamique 1D.
+      - sommes_des_lignes      : Fait la somme des lignes d'un tableau 2D et accumule
+                                 les résultats dans un tableau dynamique 1D.
+      - sous_tableau           : Crée un tableau dynamique avec la bonne taille et parcours
+                                 les cases du tableau 2D puis copiez dans le sous-tableau
+                                 le bon nombre d'élément.
 
 *****************************************************************************************/
 
@@ -140,8 +147,7 @@ void initialiser_tableau2D(double** tableau, int nb_ligne, int nb_colonne, doubl
 //
 double somme_tableau2D(double** tableau, int nb_ligne, int nb_colonne)
 {
-    // Ce paramètre en format réel nous sert a faire la somme des résultats.
-    double resultat = 0;
+    double resultat = 0; // Ce paramètre en format réel nous sert a faire la somme des résultats.
 
     // On parcourt chaque ligne du tableau.
     for(int i = 0; i < nb_ligne; i++)
@@ -222,53 +228,66 @@ void produit_tableau2D(double** tableau1, double** tableau2, int nb_ligne, int n
 
 
 //
-//  Cette fonction
+//  Cette fonction calcule la somme de chacune des colonnes d'un tableau 2D et accumule les résultats dans un tableau
+//    dynamique 1D.
 //
 void sommes_des_colonnes(double** tableau_entree, int nb_ligne, int nb_colonne, double** tableau_resultat)
 {
     // On parcourt chaque colonne du tableau.
     for(int j = 0; j < nb_colonne; j++)
     {
-        double sommes_colonnes = 0;
+        double sommes_colonnes = 0; // Ce paramètre en format réel nous sert a faire la somme des colonnes.
 
+        // On parcourt chaque ligne des tableaux.
         for(int i = 0; i < nb_ligne; i++)
         {
+            // Sommation des colonnes.
             sommes_colonnes += tableau_entree[i][j];
         }
 
+        //On entre dans le tableau dynamique 1D, le résultat des sommes des colonnes du tableau 2D reçu.
         *tableau_resultat[j] = sommes_colonnes;
     }
 }
 
 
 //
-//  Cette fonction
+//  Cette fonction calcule la somme de chacune des lignes d'un tableau 2D et accumule les résultats dans un tableau
+//    dynamique 1D.
 //
 void sommes_des_lignes(double** tableau_entree, int nb_ligne, int nb_colonne, double** tableau_resultat)
 {
+    // On parcourt chaque ligne des tableaux.
     for(int i = 0; i < nb_ligne; i++)
     {
-        double somme_lignes = 0;
+        double somme_lignes = 0; // Ce paramètre en format réel nous sert a faire la somme des lignes.
 
+        // On parcourt chaque colonne des tableaux.
         for(int j = 0; j < nb_colonne; j++)
         {
+            // Sommation des lignes.
             somme_lignes += tableau_entree[i][j];
         }
 
+        //On entre dans le tableau dynamique 1D, le résultat des sommes des lignes du tableau 2D reçu.
         *tableau_resultat[i] = somme_lignes;
     }
 }
 
 
 //
-//  Cette fonction
+//  Cette fonction crée un tableau dynamique avec la bonne taille reçu en paramètre et parcours les cases du tableau 2D
+//     à partir du numéro de ligne et de colonne reçu, puis copiez dans le sous-tableau le bon nombre d'élément.
 //
 void sous_tableau(double** tableau_entree, int nb_ligne, int nb_colonne, double*** tableau_resultat, int no_ligne, int no_colonne, int taille_ligne, int taille_colonne)
 {
+    // On parcourt chaque ligne des tableaux.
     for(int i = no_ligne; i <= taille_ligne; i++)
     {
+        // On parcourt chaque colonne des tableaux.
         for(int j = no_colonne; j <= taille_colonne; j++)
         {
+            //On copie dans le sous tableau les éléments qu'on veut.
             *tableau_resultat[i][j] = tableau_entree[i][j];
         }
     }

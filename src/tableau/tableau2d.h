@@ -22,7 +22,9 @@
                                  les résultats dans un tableau dynamique 1D.
       - sommes_des_lignes      : Fait la somme des lignes d'un tableau 2D et accumule
                                  les résultats dans un tableau dynamique 1D.
-      - sous_tableau           :
+      - sous_tableau           : Crée un tableau dynamique avec la bonne taille et parcours
+                                 les cases du tableau 2D puis copiez dans le sous-tableau
+                                 le bon nombre d'élément.
 
 *****************************************************************************************/
 
@@ -225,7 +227,8 @@ void sommes_des_lignes(double** tableau_entree, int nb_ligne, int nb_colonne, do
 /*
     SOUS_TABLEAU
 
-    Cette fonction
+    Cette fonction crée un tableau dynamique avec la bonne taille reçu en paramètre et parcours les cases du tableau 2D
+     à partir du numéro de ligne et de colonne reçu, puis copiez dans le sous-tableau le bon nombre d'élément.
 
     PARAMÈTRES :
         - tableau_entree      : Le tableau 2D qui sera analysé.
